@@ -1,18 +1,19 @@
 class Product:
-    def __init__(self,name,category,id,quantity,expiry_date):
+    def __init__(self,id,name,category,quantity,expiry_date):
+        self.__id=id
         self.name=name
         self.category=category
-        self.__id=id
         self.__quantity=quantity
         self.__expiry_date=expiry_date
     
     def display(self):
-        print("==== Product Details ====")
+        print("-"*30)
         print(f"Id: {self.__id}")
         print(f"Name: {self.name}")
         print(f"Category: {self.category}")
         print(f"Quantity: {self.__quantity}")
         print(f"Expiry Date: {self.__expiry_date}")
+        print("-"*30)
 
     def update_qty(self,amount):
         self.__quantity+=amount
@@ -29,18 +30,68 @@ class Inventory:
 
     def add_products(self,product):
         self.__products.append(product)
+        print("\nProduct Added Successfully!!")
 
-    def display_product(self):
+    def display_products(self):
+        print("==== Product Details ====")
         for product in self.__products:
             product.display()
 
     def search_product(self,product_id):  #search by ID
         for p in self.__products:
             if p.get_id()==product_id:
-                print("--- Product found! ---")
                 return p
+
+inv=Inventory()
+
+p1=Product(
+    id=101,
+    name="Milk",
+    category="Food",
+    quantity=2,
+    expiry_date="18-08-2026"
+)
+inv.add_products(p1)
+
+#========= User Menu =========
+while True:
+
+    print("---- ShelfLife ----")
+    print("1. Add Product")
+    print("2. View Product")
+    print("3. Search Product")
+    print("4. Exit!")
+    try:
+        choice = int(input("Enter your Choice: "))
+        if choice == 1:
+            print("~ Enter Product Details ~")
+            pid=int(input("ID: "))
+            pname=input("Name: ")
+            category=input("Category: ")
+            qty=int(input("Quantity: "))
+            exp=input("Expiry Date (DD-MM-YYYY): ")
+    
+            product=Product(pid,pname,category,qty,exp)
+            inv.add_products(product)
+        
+        elif choice == 2:
+            inv.display_products()
+        
+        elif choice == 3:
+            id=int(input("Enter product ID to search: "))
+            product=inv.search_product(id)
+            if product:
+                print("\nProduct found!")
+                product.display()
             else:
-                return none
+                print("\nProduct Not found!")
+        else:
+            print("Exited!")
+            break
+        print()
+    except ValueError:
+        print("Please enter a valid number!")
+
 
 
 
