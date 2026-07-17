@@ -18,6 +18,9 @@ class Product:
     def update_qty(self,amount):
         self.__quantity+=amount
 
+    def get_qty(self):
+        return self.__quantity
+
     def get_id(self):
         return self.__id
 
@@ -60,7 +63,8 @@ while True:
     print("1. Add Product")
     print("2. View Product")
     print("3. Search Product")
-    print("4. Exit!")
+    print("4. Update Quantity")
+    print("5. Exit!")
     try:
         choice = int(input("Enter your Choice: "))
         if choice == 1:
@@ -85,6 +89,18 @@ while True:
                 product.display()
             else:
                 print("\nProduct Not found!")
+        elif choice == 4:
+            id=int(input("Enter Prouduct ID to be updated: "))
+            product=inv.search_product(id)
+            if product:
+                print("Product found!")
+                amount = int(input("Enter quantity to add (+) or remove (-): "))
+                product.update_qty(amount)
+                print("Updated quantity: ",product.get_qty())
+            else:
+                print("Product ID: " ,id," Not found!")
+                print("Update Unsuccessful")
+
         else:
             print("Exited!")
             break
