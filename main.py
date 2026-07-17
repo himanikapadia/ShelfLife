@@ -53,6 +53,12 @@ class Inventory:
                 return True
         print("Failed Remove!")
         return False
+    def low_stock_products(self):
+        low_stock=[]
+        for product in self.__products:
+            if product.is_low_stock():
+                low_stock.append(product)
+        return low_stock
 
 inv=Inventory()
 
@@ -74,7 +80,8 @@ while True:
     print("3. Search Product")
     print("4. Update Quantity")
     print("5. Remove Product")
-    print("6. Exit!")
+    print("6. Check Low Stock Products")
+    print("7. Exit!")
     try:
         choice = int(input("Enter your Choice: "))
         if choice == 1:
@@ -113,6 +120,14 @@ while True:
         elif choice == 5:
             id=int(input("Enter Prouduct ID to be Removed: "))
             product=inv.remove_product(id)
+        elif choice == 6:
+            products=inv.low_stock_products()
+            if products:
+                print("\n==== Low Stock Products ====")
+                for product in products:
+                    product.display()
+            else:
+                print("\nNo low stock products found.")
         else:
             print("Exited!")
             break
