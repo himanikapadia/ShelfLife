@@ -45,6 +45,15 @@ class Inventory:
             if p.get_id()==product_id:
                 return p
 
+    def remove_product(self,id):
+        for p in self.__products:
+            if p.get_id()==id:
+                self.__products.remove(p)
+                print(f"Product: {id} is Removed Successfully!")
+                return True
+        print("Failed Remove!")
+        return False
+
 inv=Inventory()
 
 p1=Product(
@@ -64,7 +73,8 @@ while True:
     print("2. View Product")
     print("3. Search Product")
     print("4. Update Quantity")
-    print("5. Exit!")
+    print("5. Remove Product")
+    print("6. Exit!")
     try:
         choice = int(input("Enter your Choice: "))
         if choice == 1:
@@ -100,7 +110,9 @@ while True:
             else:
                 print("Product ID: " ,id," Not found!")
                 print("Update Unsuccessful")
-
+        elif choice == 5:
+            id=int(input("Enter Prouduct ID to be Removed: "))
+            product=inv.remove_product(id)
         else:
             print("Exited!")
             break
