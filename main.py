@@ -1,3 +1,4 @@
+from datetime import datetime
 class Product:
     def __init__(self,id,name,category,quantity,expiry_date):
         self.__id=id
@@ -26,6 +27,19 @@ class Product:
 
     def is_low_stock(self):
         return self.__quantity<5
+
+    def is_expired(self):
+        expiry = datetime.strptime(self.__expiry_date, "%d-%m-%Y")
+        today = datetime.today()
+
+        return expiry < today
+    def is_expiring_soon(self):
+        expiry = datetime.strptime(self.__expiry_date, "%d-%m-%Y")
+        today = datetime.today()
+
+        days_left = (expiry - today).days
+
+        return 0 <= days_left <= 7
 
 class Inventory:
     def __init__(self):
@@ -59,6 +73,22 @@ class Inventory:
             if product.is_low_stock():
                 low_stock.append(product)
         return low_stock
+    def expired_products(self):
+        expired = []
+
+        for product in self.__products:
+            if product.is_expired():
+                expired.append(product)
+
+        return expired
+    def expiring_soon_products(self):
+        expiring = []
+
+        for product in self.__products:
+            if product.is_expiring_soon():
+                expiring.append(product)
+
+        return expiring
 
 inv=Inventory()
 
@@ -128,6 +158,16 @@ while True:
                     product.display()
             else:
                 print("\nNo low stock products found.")
+        elif choice == 7:
+            products = inv.expired_products()
+
+            if products:
+                print("\n==== Expired Products ====")
+
+            for product in products:
+                product.display()
+            else:
+                print("\nNo expired products.")
         else:
             print("Exited!")
             break
