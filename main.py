@@ -17,7 +17,10 @@ class Product:
         print("-"*30)
 
     def update_qty(self,amount):
-        self.__quantity+=amount
+        if self.__quantity+ amount>0:
+            self.__quantity+=amount
+        else:
+            print("Quantity Cannot be Negative!")
 
     def get_qty(self):
         return self.__quantity
@@ -50,15 +53,18 @@ class Inventory:
     def __init__(self):
         self.__products=[]
 
-    def add_products(self,product):
+    def add_product(self,product):
         self.__products.append(product)
-        
-    def display_products(self):
-        print("==== Product Details ====")
-        for product in self.__products:
-            product.display()
 
-    def search_product(self,product_id):  #search by ID
+    def display_products(self):
+        if not self.__products:
+            print("Inventory is Empty!")
+        else:
+            print("==== Product Details ====")
+            for product in self.__products:
+                product.display()
+
+    def search_product(self,product_id,name,category):  #search by ID, name and category
         for p in self.__products:
             if p.get_id()==product_id:
                 return p
@@ -79,25 +85,17 @@ class Inventory:
         return low_stock
     def expiry_report(self):
         print("\n====== Expiry Report ======")
-
         for product in self.__products:
-
             days = product.days_left()
-
             product.display()
-
             if days < 0:
                 print("Expired")
-
             elif days == 0:
                 print("⚠ Expires Today")
-
             elif days <= 7:
                 print(f"⚠ Expires in {days} day(s)")
-
             else:
                 print(f"{days} day(s) remaining")
-
             print()
 
 inv=Inventory()
@@ -109,12 +107,15 @@ p1=Product(
     quantity=2,
     expiry_date="18-08-2026"
 )
-inv.add_products(p1)
+inv.add_product(p1)
 
 #========= User Menu =========
 while True:
 
-    print("---- ShelfLife ----")
+    print("="*40)
+    print("\tShelfLife V1")
+    print("Terminal Inventory Management System")
+    print("="*40)
     print("1. Add Product")
     print("2. View Product")
     print("3. Search Product")
@@ -134,20 +135,45 @@ while True:
             exp=input("Expiry Date (DD-MM-YYYY): ")
     
             product=Product(pid,pname,category,qty,exp)
-            inv.add_products(product)
+            inv.add_product(product)
             print("\nProduct Added Successfully!!")
         
         elif choice == 2:
             inv.display_products()
         
         elif choice == 3:
-            id=int(input("Enter product ID to search: "))
-            product=inv.search_product(id)
-            if product:
-                print("\nProduct found!")
-                product.display()
+            print("----Search Options----")
+            print("1. Search by ID")
+            print("2. Search by Name")
+            print("3. Search by Category")
+            ch=int(input("Enter Choice: "))
+            if ch == 1:
+                id=int(input("Enter product ID to search: "))
+                product=inv.search_product(id)
+                if product:
+                    print("\nProduct found!")
+                    product.display()
+                else:
+                    print("\nProduct Not found!")
+            elif ch == 2:
+                name=input("Enter Name to be search: ")
+                product=inv.search_product(name)
+                if product:
+                    print("\nProduct Found!")
+                    product.display()
+                else:
+                    print("\nProduct Not Found!")
+            elif ch == 3:
+                category=int(input("Enter Name to be search: "))
+                product=inv.search_product(category)
+                if product:
+                    print("\nProduct Found!")
+                    product.display()
+                else:
+                    print("\nProduct Not Found!")
             else:
-                print("\nProduct Not found!")
+                print("Invalid Choice!")
+                break
         elif choice == 4:
             id=int(input("Enter Prouduct ID to be updated: "))
             product=inv.search_product(id)
@@ -172,9 +198,11 @@ while True:
                 print("\nNo low stock products found.")
         elif choice == 7:
             inv.expiry_report()
-        else:
+        elif choice ==8:
             print("Exited!")
             break
+        else:
+            print("Invalid Choice!")
         print()
     except ValueError:
         print("Please enter a valid number!")
