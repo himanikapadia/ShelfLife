@@ -52,8 +52,7 @@ class Inventory:
 
     def add_products(self,product):
         self.__products.append(product)
-        print("\nProduct Added Successfully!!")
-
+        
     def display_products(self):
         print("==== Product Details ====")
         for product in self.__products:
@@ -136,6 +135,7 @@ while True:
     
             product=Product(pid,pname,category,qty,exp)
             inv.add_products(product)
+            print("\nProduct Added Successfully!!")
         
         elif choice == 2:
             inv.display_products()
