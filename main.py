@@ -40,6 +40,11 @@ class Product:
         days_left = (expiry - today).days
 
         return 0 <= days_left <= 7
+    def days_left(self):
+        expiry = datetime.strptime(self.__expiry_date, "%d-%m-%Y")
+        today = datetime.today()
+
+        return (expiry - today).days
 
 class Inventory:
     def __init__(self):
@@ -73,22 +78,28 @@ class Inventory:
             if product.is_low_stock():
                 low_stock.append(product)
         return low_stock
-    def expired_products(self):
-        expired = []
+    def expiry_report(self):
+        print("\n====== Expiry Report ======")
 
         for product in self.__products:
-            if product.is_expired():
-                expired.append(product)
 
-        return expired
-    def expiring_soon_products(self):
-        expiring = []
+            days = product.days_left()
 
-        for product in self.__products:
-            if product.is_expiring_soon():
-                expiring.append(product)
+            product.display()
 
-        return expiring
+            if days < 0:
+                print("Expired")
+
+            elif days == 0:
+                print("⚠ Expires Today")
+
+            elif days <= 7:
+                print(f"⚠ Expires in {days} day(s)")
+
+            else:
+                print(f"{days} day(s) remaining")
+
+            print()
 
 inv=Inventory()
 
@@ -111,7 +122,8 @@ while True:
     print("4. Update Quantity")
     print("5. Remove Product")
     print("6. Check Low Stock Products")
-    print("7. Exit!")
+    print("7. Expiry Report")
+    print("8. Exit!")
     try:
         choice = int(input("Enter your Choice: "))
         if choice == 1:
@@ -159,15 +171,7 @@ while True:
             else:
                 print("\nNo low stock products found.")
         elif choice == 7:
-            products = inv.expired_products()
-
-            if products:
-                print("\n==== Expired Products ====")
-
-            for product in products:
-                product.display()
-            else:
-                print("\nNo expired products.")
+            inv.expiry_report()
         else:
             print("Exited!")
             break
