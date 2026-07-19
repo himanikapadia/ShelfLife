@@ -27,6 +27,12 @@ class Product:
 
     def get_id(self):
         return self.__id
+    
+    def get_name(self):
+        return self.name
+
+    def get_category(self):
+        return self.category
 
     def is_low_stock(self):
         return self.__quantity<5
@@ -64,10 +70,20 @@ class Inventory:
             for product in self.__products:
                 product.display()
 
-    def search_product(self,product_id,name,category):  #search by ID, name and category
+    def search_by_Id(self,product_id):  
         for p in self.__products:
             if p.get_id()==product_id:
                 return p
+    def search_by_name(self,name):
+        for p in self.__products:
+            if p.get_name()==name:
+                return p
+    def search_by_category(self,category):
+        products=[]
+        for p in self.__products:
+            if p.get_category().lower()==category.lower():
+                products.append(p)
+        return products
 
     def remove_product(self,id):
         for p in self.__products:
@@ -149,7 +165,7 @@ while True:
             ch=int(input("Enter Choice: "))
             if ch == 1:
                 id=int(input("Enter product ID to search: "))
-                product=inv.search_product(id)
+                product=inv.search_by_Id(id)
                 if product:
                     print("\nProduct found!")
                     product.display()
@@ -157,20 +173,21 @@ while True:
                     print("\nProduct Not found!")
             elif ch == 2:
                 name=input("Enter Name to be search: ")
-                product=inv.search_product(name)
+                product=inv.search_by_name(name)
                 if product:
                     print("\nProduct Found!")
                     product.display()
                 else:
                     print("\nProduct Not Found!")
             elif ch == 3:
-                category=int(input("Enter Name to be search: "))
-                product=inv.search_product(category)
-                if product:
+                category=input("Enter Category to be search: ")
+                products=inv.search_by_category(category)
+                if products:
                     print("\nProduct Found!")
-                    product.display()
+                    for product in products:
+                        product.display()
                 else:
-                    print("\nProduct Not Found!")
+                    print("\nNo products found in this category!")
             else:
                 print("Invalid Choice!")
                 break
