@@ -193,7 +193,7 @@ while True:
                 break
         elif choice == 4:
             id=int(input("Enter Prouduct ID to be updated: "))
-            product=inv.search_product(id)
+            product=inv.search_by_Id(id)
             if product:
                 print("Product found!")
                 amount = int(input("Enter quantity to add (+) or remove (-): "))
