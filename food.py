@@ -8,4 +8,4 @@ class food(Product):
         super().display()  
         print("Category: FOOD")
         print(f"Storage Type: {self.storage_type}")
-        print("-"*40)  
+        print("-"*30)  
