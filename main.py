@@ -1,18 +1,10 @@
 from inventory import Inventory
 from product import Product
-# from food import Food
-# from medicine import Medicine
-# from electronics import Electronics
-inv=Inventory()
+from food import Food
+from medicines import Medicines
+from electronics import Electronics
 
-p1=Product(
-    id=101,
-    name="Milk",
-    category="Food",
-    quantity=2,
-    expiry_date="18-08-2026"
-)
-inv.add_product(p1)
+inv=Inventory()
 
 #========= User Menu =========
 while True:
@@ -32,14 +24,43 @@ while True:
     try:
         choice = int(input("Enter your Choice: "))
         if choice == 1:
+
+            print("\n----Select Product Type----")
+            print("1. Food")
+            print("2. Medicine")
+            print("3. Electronics")
+
+            ptype=int(input("Enter Your choice: "))
+
             print("~ Enter Product Details ~")
             pid=int(input("ID: "))
             pname=input("Name: ")
-            category=input("Category: ")
             qty=int(input("Quantity: "))
-            exp=input("Expiry Date (DD-MM-YYYY): ")
+
+            if ptype==1:
+                exp=input("Expiry Date (DD-MM-YYYY): ")
+                storage = input("Storage Type: ")
+
+                product=Food(pid,pname,qty,exp,storage)
+
+            elif ptype==2:
+                exp=input("Expiry Date (DD-MM-YYYY): ")
+                manufacturer = input("Manufacturer: ")
+                prescription = input("Prescription Required (Yes/No): ")
+
+                product=Medicines(pid,pname,qty,exp,manufacturer,prescription)
+
+            elif ptype==3:
+                exp=input("Expiry Date (DD-MM-YYYY): ")
+                warranty=int(input("Warranty (Months): "))
+                brand = input("Brand: ")
+
+                product=Electronics(pid,pname,qty,exp,warranty,brand)
+
+            else:
+                print("Invalid Product Type")
+                continue
     
-            product=Product(pid,pname,category,qty,exp)
             inv.add_product(product)
             print("\nProduct Added Successfully!!")
         
