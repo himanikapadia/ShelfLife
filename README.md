@@ -10,7 +10,7 @@ Unlike a single-file Python script, ShelfLife follows a modular architecture whe
 
 ---
 
-# ✨ Features
+# Features
 
 - Add new products
 - View all products
@@ -31,7 +31,7 @@ Unlike a single-file Python script, ShelfLife follows a modular architecture whe
 
 ---
 
-# 🧠 OOP Concepts Demonstrated
+# OOP Concepts Demonstrated
 
 ShelfLife was built to practice real-world Object-Oriented Programming concepts.
 
@@ -271,7 +271,7 @@ This repository documents my journey from learning basic Python to building a co
 
 ---
 
-# 📸 Current Status
+# Current Status
 
 **Current Version:** `v1.1`
 
@@ -287,7 +287,7 @@ This repository documents my journey from learning basic Python to building a co
 
 ---
 
-## ⭐ Future Vision
+## Future Vision
 
 ShelfLife is not just a practice project—it's a project that will continuously evolve as I learn new technologies.
 
