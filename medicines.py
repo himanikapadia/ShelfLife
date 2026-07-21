@@ -11,4 +11,4 @@ class Medicines(Product):
         print("Category : Medicine")
         print(f"Manufacturer : {self.manufacturer}")
         print(f"Prescription Required : {self.prescription_required}")
-        print("-" * 30)
+        print("-" * 35)
