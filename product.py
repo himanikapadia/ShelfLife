@@ -36,19 +36,7 @@ class Product:
 
     def is_low_stock(self):
         return self.__quantity<5
-
-    def is_expired(self):
-        expiry = datetime.strptime(self.__expiry_date, "%d-%m-%Y")
-        today = datetime.today()
-
-        return expiry < today
-    def is_expiring_soon(self):
-        expiry = datetime.strptime(self.__expiry_date, "%d-%m-%Y")
-        today = datetime.today()
-
-        days_left = (expiry - today).days
-
-        return 0 <= days_left <= 7
+    
     def days_left(self):
         expiry = datetime.strptime(self.__expiry_date, "%d-%m-%Y")
         today = datetime.today()
