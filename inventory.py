@@ -45,6 +45,8 @@ class Inventory:
     def expiry_report(self):
         print("\n====== Expiry Report ======")
         for product in self.__products:
+            if product.get_category().lower() == "electronics":
+                continue
             days = product.days_left()
             product.display()
             if days < 0:

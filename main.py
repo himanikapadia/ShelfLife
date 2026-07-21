@@ -51,11 +51,10 @@ while True:
                 product=Medicines(pid,pname,qty,exp,manufacturer,prescription)
 
             elif ptype==3:
-                exp=input("Expiry Date (DD-MM-YYYY): ")
                 warranty=int(input("Warranty (Months): "))
                 brand = input("Brand: ")
 
-                product=Electronics(pid,pname,qty,exp,warranty,brand)
+                product=Electronics(pid,pname,qty,warranty,brand)
 
             else:
                 print("Invalid Product Type")
@@ -131,8 +130,8 @@ while True:
         else:
             print("Invalid Choice!")
         print()
-    except ValueError:
-        print("Please enter a valid number!")
+    except Exception as e:
+        print(type(e).__name__, ":", e)
 
 
 

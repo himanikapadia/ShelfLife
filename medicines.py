@@ -10,7 +10,7 @@ class Medicines(Product):
         super().display() 
         print("Category : Medicine")
         print(f"Manufacturer : {self.manufacturer}")
-        print(f"Prescription Required : {self.prescription_required}")
+        print(f"Prescription Required : {self.prescription}")
         print("-" * 35)
 
     def get_category(self):
