@@ -1,9 +1,8 @@
 from datetime import datetime
 class Product:
-    def __init__(self,id,name,category,quantity,expiry_date):
+    def __init__(self,id,name,quantity,expiry_date):
         self.__id=id
         self.name=name
-        self.category=category
         self.__quantity=quantity
         self.__expiry_date=expiry_date
     
@@ -11,7 +10,6 @@ class Product:
         print("-"*30)
         print(f"Id: {self.__id}")
         print(f"Name: {self.name}")
-        print(f"Category: {self.category}")
         print(f"Quantity: {self.__quantity}")
         print(f"Expiry Date: {self.__expiry_date}")
         print("-"*30)
@@ -30,9 +28,6 @@ class Product:
     
     def get_name(self):
         return self.name
-
-    def get_category(self):
-        return self.category
 
     def is_low_stock(self):
         return self.__quantity<5
