@@ -12,3 +12,6 @@ class Medicines(Product):
         print(f"Manufacturer : {self.manufacturer}")
         print(f"Prescription Required : {self.prescription_required}")
         print("-" * 35)
+
+    def get_category(self):
+        return "Medicines"

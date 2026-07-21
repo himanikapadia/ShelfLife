@@ -11,3 +11,6 @@ class Electronics(Product):
         print(f"Brand : {self.brand}")
         print(f"Warranty : {self.warranty_months} Months")
         print("-" * 30)
+
+    def get_category(self):
+        return "Electronics"

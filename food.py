@@ -9,3 +9,6 @@ class Food(Product):
         print("Category: FOOD")
         print(f"Storage Type: {self.storage_type}")
         print("-"*30)  
+
+    def get_category(self):
+        return "Food"
