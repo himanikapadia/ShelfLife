@@ -1,7 +1,7 @@
 from product import Product
 
 class Medicines(Product):
-    def __init__(self, id, name, category, quantity, expiry_date,manufacturer,prescription):
+    def __init__(self, id, name,quantity, expiry_date,manufacturer,prescription):
         super().__init__(id, name,quantity, expiry_date)
         self.manufacturer=manufacturer
         self.prescription=prescription

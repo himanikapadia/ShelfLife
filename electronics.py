@@ -1,6 +1,6 @@
 from product import Product
 class Electronics(Product):
-    def __init__(self, id, name, category, quantity, expiry_date,warranty_months,brand):
+    def __init__(self, id, name,quantity, expiry_date,warranty_months,brand):
         super().__init__(id, name,quantity,"N/A")
         self.warranty_months=warranty_months
         self.brand=brand
