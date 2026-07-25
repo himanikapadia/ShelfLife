@@ -14,3 +14,9 @@ class Electronics(Product):
 
     def get_category(self):
         return "Electronics"
+
+    def get_warranty(self):
+        return self.warranty_months
+
+    def get_brand(self):
+        return self.brand
