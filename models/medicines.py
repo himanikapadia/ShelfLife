@@ -15,3 +15,10 @@ class Medicines(Product):
 
     def get_category(self):
         return "Medicines"
+
+    def get_manufacture(self):
+        return self.manufacturer
+
+    def get_prescription(self):
+        return self.prescription
+    
