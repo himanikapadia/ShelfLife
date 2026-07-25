@@ -1,4 +1,4 @@
-from product import Product
+from models.product import Product
 
 class Medicines(Product):
     def __init__(self, id, name,quantity, expiry_date,manufacturer,prescription):

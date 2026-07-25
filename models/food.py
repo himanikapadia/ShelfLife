@@ -1,4 +1,4 @@
-from product import Product
+from models.product import Product
 class Food(Product):
     def __init__(self, id, name,quantity, expiry_date,storage_type):
         super().__init__(id, name,quantity, expiry_date)

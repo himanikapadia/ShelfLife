@@ -1,8 +1,8 @@
-from inventory import Inventory
-from product import Product
-from food import Food
-from medicines import Medicines
-from electronics import Electronics
+from services.inventory import Inventory
+from models.product import Product
+from models.food import Food
+from models.medicines import Medicines
+from models.electronics import Electronics
 
 inv=Inventory()
 

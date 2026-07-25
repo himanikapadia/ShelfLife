@@ -1,4 +1,4 @@
-from product import Product
+from models.product import Product
 class Electronics(Product):
     def __init__(self, id, name,quantity,warranty_months,brand):
         super().__init__(id, name,quantity,"N/A")
