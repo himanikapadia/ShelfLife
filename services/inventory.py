@@ -1,9 +1,12 @@
+from services.file_handler import save_inventory
+
 class Inventory:
     def __init__(self):
         self.__products=[]
 
     def add_product(self,product):
         self.__products.append(product)
+        save_inventory(self.__products)
 
     def display_products(self):
         if not self.__products:
@@ -12,6 +15,9 @@ class Inventory:
             print("==== Product Details ====")
             for product in self.__products:
                 product.display()
+
+    def get_products(self):
+        return self.__products
 
     def search_by_Id(self,product_id):  
         for p in self.__products:
@@ -33,6 +39,7 @@ class Inventory:
             if p.get_id()==id:
                 self.__products.remove(p)
                 print(f"Product: {id} is Removed Successfully!")
+                save_inventory(self.__products)
                 return True
         print("Failed Remove!")
         return False

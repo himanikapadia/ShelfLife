@@ -13,8 +13,5 @@ class Food(Product):
     def get_category(self):
         return "Food"
 
-    def get_expiry(self):
-        return self.__expiry_date
-
     def get_storage(self):
         return self.storage_type

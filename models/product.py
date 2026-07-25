@@ -1,4 +1,5 @@
 from datetime import datetime
+from services.file_handler import save_inventory
 class Product:
     def __init__(self,id,name,quantity,expiry_date):
         self.__id=id
@@ -17,11 +18,15 @@ class Product:
     def update_qty(self,amount):
         if self.__quantity+ amount>0:
             self.__quantity+=amount
+            save_inventory(self.__products)
         else:
             print("Quantity Cannot be Negative!")
 
     def get_qty(self):
         return self.__quantity
+
+    def get_expiry(self):
+        return self.__expiry_date
 
     def get_id(self):
         return self.__id
