@@ -8,6 +8,17 @@ class Inventory:
         self.__products.append(product)
         save_inventory(self.__products)
 
+    def update_product_qty(self, product_id, amount):
+
+        product = self.search_by_Id(product_id)
+
+        if product:
+            product.update_qty(amount)
+            save_inventory(self.__products)
+            return True
+
+        return False
+
     def display_products(self):
         if not self.__products:
             print("Inventory is Empty!")
@@ -35,7 +46,7 @@ class Inventory:
         return products
 
     def add_loaded_product(self, product):
-        return self.__products.append(product)
+        self.__products.append(product)
 
     def remove_product(self,id):
         for p in self.__products:

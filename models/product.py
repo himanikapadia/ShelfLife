@@ -18,7 +18,6 @@ class Product:
     def update_qty(self,amount):
         if self.__quantity+ amount>0:
             self.__quantity+=amount
-            save_inventory(self.__products)
         else:
             print("Quantity Cannot be Negative!")
 

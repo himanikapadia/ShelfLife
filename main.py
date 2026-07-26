@@ -124,8 +124,10 @@ while True:
             if product:
                 print("Product found!")
                 amount = int(input("Enter quantity to add (+) or remove (-): "))
-                product.update_qty(amount)
-                print("Updated quantity: ",product.get_qty())
+                if inv.update_product_qty(pid, amount):
+                    product = inv.search_by_Id(pid)
+                    print("\nQuantity Updated Successfully!")
+                    print("Current Quantity:", product.get_qty())
             else:
                 print("Product ID: " ,id," Not found!")
                 print("Update Unsuccessful")
