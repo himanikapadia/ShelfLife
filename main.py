@@ -4,37 +4,28 @@ from models.food import Food
 from models.medicines import Medicines
 from models.electronics import Electronics
 from services.file_handler import load_inventory
+from utils.menu import show_menu
+
+# Initialize Inventory
 
 inv=Inventory()
 products=load_inventory()
 for product in products:
     inv.add_loaded_product(product)
 
-print(f"{len(products)} products loaded successfully.\n")
+print("=" * 40)
+print("Welcome to ShelfLife V2")
+print(f"{len(products)} products loaded successfully.")
+print("=" * 40)
 
 #========= User Menu =========
 while True:
-
-    print("="*40)
-    print("\tShelfLife V2")
-    print("Terminal Inventory Management System")
-    print("="*40)
-    print("1. Add Product")
-    print("2. View Product")
-    print("3. Search Product")
-    print("4. Update Quantity")
-    print("5. Remove Product\n")
-    print("----- Reports -----")
-    print("6. Check Low Stock Products")
-    print("7. Expiry Report\n")
-    print("----- Import/Export -----")
-    print("8. Export to JSON")
-    print("9. Import from JSON")
-    print("10. Export from CSV")
-    print("11. Import from CSV\n")
-    print("0. Exit!")
+    show_menu()
     try:
         choice = int(input("Enter your Choice: "))
+
+        # ----- ADD PRODUCT ----- 
+        
         if choice == 1:
 
             print("\n----Select Product Type----")
@@ -74,9 +65,15 @@ while True:
     
             inv.add_product(product)
             print("\nProduct Added Successfully!!")
+
+
+        # ------ VIEW PRODUCT -----
         
         elif choice == 2:
             inv.display_products()
+
+
+        # ----- SEARCH -------
         
         elif choice == 3:
             print("----Search Options----")
@@ -112,6 +109,9 @@ while True:
             else:
                 print("Invalid Choice!")
                 break
+
+        # ----- UPDATE -----
+
         elif choice == 4:
             id=int(input("Enter Prouduct ID to be updated: "))
             product=inv.search_by_Id(id)
@@ -123,9 +123,15 @@ while True:
             else:
                 print("Product ID: " ,id," Not found!")
                 print("Update Unsuccessful")
+
+        # ----- REMOVE -----
+
         elif choice == 5:
             id=int(input("Enter Prouduct ID to be Removed: "))
             product=inv.remove_product(id)
+
+        # ---- LOW STOCK -----
+
         elif choice == 6:
             products=inv.low_stock_products()
             if products:
@@ -134,6 +140,9 @@ while True:
                     product.display()
             else:
                 print("\nNo low stock products found.")
+
+        #----- EXPIRY REPORT -----
+        
         elif choice == 7:
             inv.expiry_report()
         elif choice ==0:
@@ -144,6 +153,10 @@ while True:
         print()
     except Exception as e:
         print(type(e).__name__, ":", e)
+    except ValueError:
+        print("Please enter a valid number!")
+    except Exception as e:
+        print(f"Unexpected Error: {e}")
 
 
 
