@@ -3,8 +3,10 @@ from models.product import Product
 from models.food import Food
 from models.medicines import Medicines
 from models.electronics import Electronics
+from services.file_handler import load_inventory
 
 inv=Inventory()
+product=load_inventory()
 
 #========= User Menu =========
 while True:
