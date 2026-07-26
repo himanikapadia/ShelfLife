@@ -1,6 +1,8 @@
 from models.food import Food
 from models.medicines import Medicines
 from models.electronics import Electronics
+import json
+import csv
 
 def save_inventory(products):
     with open("inventory.txt","w") as file:
@@ -53,3 +55,40 @@ def load_inventory():
                 )
             products.append(product)
     return products
+
+def export_json(products):
+    data =[]
+    for product in products:
+        if product.get_category() == "Food":
+
+            data.append({
+                "type": "Food",
+                "id": product.get_id(),
+                "name": product.get_name(),
+                "quantity": product.get_qty(),
+                "expiry": product.get_expiry(),
+                "storage": product.get_storage()
+            })
+        elif product.get_category() == "Medicines":
+            data.append({
+                "type": "Food",
+                "id": product.get_id(),
+                "name": product.get_name(),
+                "quantity": product.get_qty(),
+                "expiry": product.get_expiry(),
+                "Manufacturer": product.get_manufacturer(),
+                "Prescription": product.get_prescription()
+            })
+        elif product.get_category() == "Electronics":
+            data.append({
+                "type": "Electronics",
+                "id": product.get_id(),
+                "name": product.get_name(),
+                "quantity": product.get_qty(),
+                "brand": product.get_brand(),
+                "warranty": product.get_warranty()
+            })
+    with open("data/inventory.json","w") as file:
+        json.dump(data,file,indent=4)
+
+    print("Inventory exported to JSON successfully!")
