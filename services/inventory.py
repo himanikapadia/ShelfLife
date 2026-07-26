@@ -34,6 +34,9 @@ class Inventory:
                 products.append(p)
         return products
 
+    def add_loaded_product(self, product):
+        return self.__products.append(product)
+
     def remove_product(self,id):
         for p in self.__products:
             if p.get_id()==id:
