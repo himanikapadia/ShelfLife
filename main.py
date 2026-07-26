@@ -8,6 +8,11 @@ from services.file_handler import load_inventory
 inv=Inventory()
 product=load_inventory()
 
+products=load_inventory()
+
+for product in products:
+    inv.add_loaded_product(product)
+
 #========= User Menu =========
 while True:
 
