@@ -94,13 +94,25 @@ Objects communicate through methods instead of directly manipulating internal da
 ```text
 ShelfLife/
 │
-├── main.py                 # Entry point & terminal menu
-├── inventory.py            # Inventory class
-├── product.py              # Parent Product class
-├── food.py                 # Food class
-├── medicine.py             # Medicine class
-├── electronics.py          # Electronics class
-├── .gitignore
+├── data/
+│   ├── inventory.txt
+│   ├── inventory.json
+│   └── inventory.csv
+│
+├── models/
+│   ├── product.py
+│   ├── food.py
+│   ├── medicines.py
+│   └── electronics.py
+│
+├── services/
+│   ├── inventory.py
+│   └── file_handler.py   👈 ALL file handling goes here
+│
+├── utils/
+│   └── menu.py
+│
+├── main.py
 └── README.md
 ```
 

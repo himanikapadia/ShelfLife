@@ -3,7 +3,13 @@ from models.product import Product
 from models.food import Food
 from models.medicines import Medicines
 from models.electronics import Electronics
-from services.file_handler import load_inventory
+from services.file_handler import (
+    load_inventory,
+    export_json,
+    import_json,
+    export_csv,
+    import_csv
+)
 from utils.menu import show_menu
 
 # Initialize Inventory
@@ -25,7 +31,7 @@ while True:
         choice = int(input("Enter your Choice: "))
 
         # ----- ADD PRODUCT ----- 
-        
+
         if choice == 1:
 
             print("\n----Select Product Type----")
@@ -151,8 +157,6 @@ while True:
         else:
             print("Invalid Choice!")
         print()
-    except Exception as e:
-        print(type(e).__name__, ":", e)
     except ValueError:
         print("Please enter a valid number!")
     except Exception as e:
