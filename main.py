@@ -6,28 +6,33 @@ from models.electronics import Electronics
 from services.file_handler import load_inventory
 
 inv=Inventory()
-product=load_inventory()
-
 products=load_inventory()
-
 for product in products:
     inv.add_loaded_product(product)
+
+print(f"{len(products)} products loaded successfully.\n")
 
 #========= User Menu =========
 while True:
 
     print("="*40)
-    print("\tShelfLife V1")
+    print("\tShelfLife V2")
     print("Terminal Inventory Management System")
     print("="*40)
     print("1. Add Product")
     print("2. View Product")
     print("3. Search Product")
     print("4. Update Quantity")
-    print("5. Remove Product")
+    print("5. Remove Product\n")
+    print("----- Reports -----")
     print("6. Check Low Stock Products")
-    print("7. Expiry Report")
-    print("8. Exit!")
+    print("7. Expiry Report\n")
+    print("----- Import/Export -----")
+    print("8. Export to JSON")
+    print("9. Import from JSON")
+    print("10. Export from CSV")
+    print("11. Import from CSV\n")
+    print("0. Exit!")
     try:
         choice = int(input("Enter your Choice: "))
         if choice == 1:
@@ -131,7 +136,7 @@ while True:
                 print("\nNo low stock products found.")
         elif choice == 7:
             inv.expiry_report()
-        elif choice ==8:
+        elif choice ==0:
             print("Exited!")
             break
         else:
