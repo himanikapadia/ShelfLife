@@ -5,7 +5,7 @@ import json
 import csv
 
 def save_inventory(products):
-    with open("inventory.txt","w") as file:
+    with open("data/inventory.txt","w") as file:
         for i in products:
             if isinstance(i,Food):
                 line=(
@@ -71,12 +71,12 @@ def export_json(products):
             })
         elif product.get_category() == "Medicines":
             data.append({
-                "type": "Food",
+                "type": "Medicines",
                 "id": product.get_id(),
                 "name": product.get_name(),
                 "quantity": product.get_qty(),
                 "expiry": product.get_expiry(),
-                "Manufacturer": product.get_manufacturer(),
+                "Manufacturer": product.get_manufacture(),
                 "Prescription": product.get_prescription()
             })
         elif product.get_category() == "Electronics":
