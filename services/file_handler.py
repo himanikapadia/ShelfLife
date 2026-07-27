@@ -178,3 +178,43 @@ def export_csv(products):
                 ])
 
     print("Inventory exported to CSV Successfully")
+
+def import_csv():
+    products=[]
+
+    with open("data/inventory.csv","r") as file:
+        reader=csv.reader(file)
+
+        next(reader)
+
+        for row in reader:
+            if row[0]=="Food":
+                product=Food(
+                    int(row[1]),
+                    row[2],
+                    int(row[3]),
+                    row[4],
+                    row[5]
+                )
+            elif row[0]=="Medicines":
+                product=Medicines(
+                    int(row[1]),
+                    row[2],
+                    int(row[3]),
+                    row[4],
+                    row[5],
+                    row[6]
+                )
+            elif row[0]=="Electronics":
+                product=Electronics(
+                    int(row[1]),
+                    row[2],
+                    int(row[3]),
+                    int(row[4]),
+                    row[5]
+                )
+            else:
+                continue
+            products.append(product)
+
+    return products
