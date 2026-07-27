@@ -3,13 +3,13 @@ from models.product import Product
 from models.food import Food
 from models.medicines import Medicines
 from models.electronics import Electronics
+from services.file_handler import save_inventory
 from services.file_handler import (
     load_inventory,
-    save_inventory
-    # export_json,
-    # import_json,
-    # export_csv,
-    # import_csv
+    export_json,
+    import_json,
+    export_csv,
+    import_csv
 )
 from utils.menu import show_menu
 
@@ -89,8 +89,8 @@ while True:
             print("3. Search by Category")
             ch=int(input("Enter Choice: "))
             if ch == 1:
-                id=int(input("Enter product ID to search: "))
-                product=inv.search_by_Id(id)
+                pid=int(input("Enter product ID to search: "))
+                product=inv.search_by_Id(pid)
                 if product:
                     print("\nProduct found!")
                     product.display()
@@ -120,8 +120,8 @@ while True:
         # ----- UPDATE -----
 
         elif choice == 4:
-            id=int(input("Enter Prouduct ID to be updated: "))
-            product=inv.search_by_Id(id)
+            pid=int(input("Enter Prouduct ID to be updated: "))
+            product=inv.search_by_Id(pid)
             if product:
                 print("Product found!")
                 amount = int(input("Enter quantity to add (+) or remove (-): "))
@@ -130,7 +130,7 @@ while True:
                     print("\nQuantity Updated Successfully!")
                     print("Current Quantity:", product.get_qty())
             else:
-                print("Product ID: " ,id," Not found!")
+                print("Product ID: " ,pid," Not found!")
                 print("Update Unsuccessful")
 
         # ----- REMOVE -----
@@ -154,6 +154,43 @@ while True:
         
         elif choice == 7:
             inv.expiry_report()
+
+        #----- Export JSON -----
+
+        elif choice == 8:
+            export_json(inv.get_products())
+
+        #----- IMPORT JSON -----
+
+        elif choice == 9:
+            products=import_json()
+            inv=Inventory()
+
+            for product in products:
+                inv.add_loaded_product(product)
+
+            save_inventory(inv.get_products())
+            print("JSON Imported Successfully!") 
+
+        #----- EXPORT CSV -----
+
+        elif choice == 10:
+            export_csv(inv.get_products())   
+
+        #----- IMPORT CSV -----
+
+        elif choice == 11:
+            products=import_csv()
+            inv=Inventory()
+
+            for product in products:
+                inv.add_loaded_product(product)
+
+            save_inventory(inv.get_products())
+            print("CSV Imported Successfully!")
+
+        #--- EXIT ----
+
         elif choice ==0:
             print("Exited!")
             break
