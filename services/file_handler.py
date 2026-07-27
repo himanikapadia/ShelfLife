@@ -92,3 +92,41 @@ def export_json(products):
         json.dump(data,file,indent=4)
 
     print("Inventory exported to JSON successfully!")
+
+def import_json():
+    products=[]
+
+    with open("data/inventory.json","r")as file:
+        data=json.load(file)
+
+        for i in data:
+            if i["type"]=="Food":
+                product=Food(
+                    i["id"],
+                    i["name"],
+                    i["quantity"],
+                    i["expiry"],
+                    i["storage"]
+                )
+            elif i["type"]=="Medicines":
+                product=Medicines(
+                    i["id"],
+                    i["name"],
+                    i["quantity"],
+                    i["expiry"],
+                    i["manufacturer"],
+                    i["prescription"]
+                )
+            elif i["type"]=="Electronics":
+                product=Electronics(
+                    i["id"],
+                    i["name"],
+                    i["quantity"],
+                    i["warranty"],
+                    i["brand"]
+                )
+            else:
+                continue
+            products.append(product)
+
+    return products
