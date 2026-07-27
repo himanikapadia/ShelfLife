@@ -130,3 +130,51 @@ def import_json():
             products.append(product)
 
     return products
+def export_csv(products):
+    with open("data/inventory.csv","w",newline="") as file:
+        writer=csv.writer(file)
+
+        writer.writerow([
+            "Type",
+            "ID",
+            "Name",
+            "Quantity",
+            "Expiry",
+            "Extra1",
+            "Extra2"
+        ])
+
+        for product in products:
+            if product.get_category()=="Food":
+                writer.writerow([
+                    "Food",
+                    product.get_id(),
+                    product.get_name(),
+                    product.get_qty(),
+                    product.get_expiry(),
+                    product.get_storage(),
+                    ""
+                ])
+            elif product.get_category()=="Medicines":
+                writer.writerow([
+                    "Medicines",
+                    product.get_id(),
+                    product.get_name(),
+                    product.get_qty(),
+                    product.get_expiry(),
+                    product.get_manufacture(),
+                    product.get_prescription()
+                ])
+
+            elif product.get_category()=="Electronics":
+                writer.writerow([
+                    "Electronics",
+                    product.get_id(),
+                    product.get_name(),
+                    product.get_qty(),
+                    product.get_warranty(),
+                    product.get_brand(),
+                    ""
+                ])
+
+    print("Inventory exported to CSV Successfully")
