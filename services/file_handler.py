@@ -13,7 +13,7 @@ def save_inventory(products):
                 )
             elif isinstance(i,Medicines):
                 line=(
-                    f"Medicines|{i.get_id()}|{i.get_name()}|{i.get_qty()}|{i.get_expiry()}|{i.get_manufacture()}|{i.get_prescription()}\n"
+                    f"Medicines|{i.get_id()}|{i.get_name()}|{i.get_qty()}|{i.get_expiry()}|{i.get_manufacturer()}|{i.get_prescription()}\n"
                 )
             elif isinstance(i,Electronics):
                 line=(
@@ -76,8 +76,8 @@ def export_json(products):
                 "name": product.get_name(),
                 "quantity": product.get_qty(),
                 "expiry": product.get_expiry(),
-                "Manufacturer": product.get_manufacture(),
-                "Prescription": product.get_prescription()
+                "manufacturer": product.get_manufacturer(),
+                "prescription": product.get_prescription()
             })
         elif product.get_category() == "Electronics":
             data.append({
@@ -88,6 +88,8 @@ def export_json(products):
                 "brand": product.get_brand(),
                 "warranty": product.get_warranty()
             })
+
+    print(data)
     with open("data/inventory.json","w") as file:
         json.dump(data,file,indent=4)
 
@@ -162,7 +164,7 @@ def export_csv(products):
                     product.get_name(),
                     product.get_qty(),
                     product.get_expiry(),
-                    product.get_manufacture(),
+                    product.get_manufacturer(),
                     product.get_prescription()
                 ])
 

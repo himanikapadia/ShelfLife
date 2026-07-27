@@ -34,10 +34,14 @@ class Inventory:
         for p in self.__products:
             if p.get_id()==product_id:
                 return p
+        return None
+        
     def search_by_name(self,name):
         for p in self.__products:
             if p.get_name()==name:
                 return p
+        return None
+        
     def search_by_category(self,category):
         products=[]
         for p in self.__products:
@@ -48,15 +52,16 @@ class Inventory:
     def add_loaded_product(self, product):
         self.__products.append(product)
 
-    def remove_product(self,id):
+    def remove_product(self,pid):
         for p in self.__products:
-            if p.get_id()==id:
+            if p.get_id()==pid:
                 self.__products.remove(p)
-                print(f"Product: {id} is Removed Successfully!")
+                print(f"Product: {pid} is Removed Successfully!")
                 save_inventory(self.__products)
                 return True
         print("Failed Remove!")
         return False
+    
     def low_stock_products(self):
         low_stock=[]
         for product in self.__products:

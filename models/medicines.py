@@ -16,7 +16,7 @@ class Medicines(Product):
     def get_category(self):
         return "Medicines"
 
-    def get_manufacture(self):
+    def get_manufacturer(self):
         return self.manufacturer
 
     def get_prescription(self):

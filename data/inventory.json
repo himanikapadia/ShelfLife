@@ -1,0 +1,11 @@
+[
+    {
+        "type": "Medicines",
+        "id": 101,
+        "name": "Crocin",
+        "quantity": 4,
+        "expiry": "24-08-2026",
+        "manufacturer": "Cipla",
+        "prescription": "yes"
+    }
+]

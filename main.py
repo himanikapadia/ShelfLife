@@ -1,16 +1,21 @@
+import os
+
+print(os.getcwd())
+
 from services.inventory import Inventory
-from models.product import Product
+#from models.product import Product
 from models.food import Food
 from models.medicines import Medicines
 from models.electronics import Electronics
-from services.file_handler import save_inventory
 from services.file_handler import (
     load_inventory,
+    save_inventory,
     export_json,
     import_json,
     export_csv,
     import_csv
 )
+
 from utils.menu import show_menu
 
 # Initialize Inventory
@@ -129,15 +134,16 @@ while True:
                     product = inv.search_by_Id(pid)
                     print("\nQuantity Updated Successfully!")
                     print("Current Quantity:", product.get_qty())
+                else:
+                    print("Update Unsuccessful")
             else:
                 print("Product ID: " ,pid," Not found!")
-                print("Update Unsuccessful")
 
         # ----- REMOVE -----
 
         elif choice == 5:
-            id=int(input("Enter Prouduct ID to be Removed: "))
-            product=inv.remove_product(id)
+            pid=int(input("Enter Prouduct ID to be Removed: "))
+            product=inv.remove_product(pid)
 
         # ---- LOW STOCK -----
 
