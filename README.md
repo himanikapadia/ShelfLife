@@ -1,16 +1,16 @@
-# 📦 ShelfLife v1.1
+# 📦 ShelfLife v2.0
 
-ShelfLife is a terminal-based inventory management application built in Python as a hands-on project to practice Object-Oriented Programming (OOP).
+ShelfLife is a terminal-based inventory management application built in Python to practice Object-Oriented Programming (OOP) by developing a real-world project.
 
-The application allows users to manage inventory items, search products, monitor low stock levels, and track expiry dates through an interactive command-line interface.
+The application allows users to manage inventory, search products, monitor low stock, track expiry dates, and automatically save data using multiple file formats.
 
-Unlike a single-file Python script, ShelfLife follows a modular architecture where different responsibilities are separated into dedicated classes and modules, making the project scalable and easier to maintain.
+Rather than being a single-file script, ShelfLife follows a modular architecture with separate models, services, utilities, and data handling modules, making it scalable and maintainable.
 
-> **Project Goal:** Learn Python by building a real-world project that grows with every new concept learned—from OOP to File Handling, Databases, GUI development, and finally a Django web application.
+> **Project Goal:** Build an inventory management system while progressively learning Python concepts—from OOP and File Handling to Databases, GUI development, and finally a Django web application.
 
 ---
 
-# Features
+#  Features
 
 - Add new products
 - View all products
@@ -26,23 +26,33 @@ Unlike a single-file Python script, ShelfLife follows a modular architecture whe
   - Products expiring today
   - Products expiring within 7 days
   - Remaining days until expiry
+- Automatic inventory saving
+- Automatic inventory loading
+- Export inventory to JSON
+- Import inventory from JSON
+- Export inventory to CSV
+- Import inventory from CSV
 - Interactive terminal menu
 - Input validation
+- Exception handling
 
 ---
 
-# OOP Concepts Demonstrated
+# 🧠 OOP Concepts Demonstrated
 
 ShelfLife was built to practice real-world Object-Oriented Programming concepts.
 
-### ✅ Classes & Objects
+##  Classes & Objects
+
 Creating reusable Product and Inventory objects.
 
-### ✅ Constructors
-Using `__init__()` to initialize every object.
+##  Constructors
 
-### ✅ Encapsulation
-Important product details are hidden using private attributes.
+Using `__init__()` to initialize objects.
+
+##  Encapsulation
+
+Important product details are protected using private attributes.
 
 ```python
 __id
@@ -50,42 +60,38 @@ __quantity
 __expiry_date
 ```
 
-### ✅ Inheritance
-
-The project uses inheritance to represent different product types.
+##  Inheritance
 
 ```text
                 Product
                    │
         ┌──────────┼──────────┐
         │          │          │
-      Food     Medicine   Electronics
+      Food     Medicines   Electronics
 ```
 
-Each child class inherits common functionality from the `Product` class.
+Each child class inherits common functionality from `Product`.
 
-### ✅ Method Overriding
+##  Method Overriding
 
-Every child class overrides the `display()` method to show its own unique information.
+Each product type overrides `display()` to show category-specific information.
 
-### ✅ Runtime Polymorphism
-
-The Inventory stores different product types together.
+##  Runtime Polymorphism
 
 ```python
 for product in products:
     product.display()
 ```
 
-Python automatically calls the correct `display()` method depending on whether the object is a Food, Medicine, or Electronics product.
+Python automatically executes the correct `display()` method depending on the object type.
 
-### ✅ Composition
+##  Composition
 
-The Inventory class manages multiple Product objects.
+The `Inventory` class manages multiple `Product` objects.
 
-### ✅ Object Interaction
+##  Object Interaction
 
-Objects communicate through methods instead of directly manipulating internal data.
+Objects communicate through methods instead of directly modifying internal state.
 
 ---
 
@@ -107,7 +113,7 @@ ShelfLife/
 │
 ├── services/
 │   ├── inventory.py
-│   └── file_handler.py   👈 ALL file handling goes here
+│   └── file_handler.py
 │
 ├── utils/
 │   └── menu.py
@@ -118,12 +124,11 @@ ShelfLife/
 
 ---
 
-# Terminal Menu
+#  Terminal Menu
 
 ```text
 ========================================
-            📦 ShelfLife v1.1
-     Terminal Inventory Management
+            📦 ShelfLife v2.0
 ========================================
 
 1. Add Product
@@ -133,14 +138,18 @@ ShelfLife/
 5. Remove Product
 6. Low Stock Report
 7. Expiry Report
-8. Exit
+8. Export to JSON
+9. Import from JSON
+10. Export to CSV
+11. Import from CSV
+0. Exit
 ```
 
 ---
 
-# 📌 Product Information
+#  Product Information
 
-Each product stores:
+Every product stores:
 
 - Product ID
 - Product Name
@@ -150,104 +159,92 @@ Each product stores:
 
 Additional information depends on the product type.
 
-### Food
+###  Food
 
 - Storage Type
 
-### Medicine
+###  Medicines
 
 - Manufacturer
 - Prescription Required
 
-### Electronics
+###  Electronics
 
 - Brand
 - Warranty Period
 
 ---
 
-# 🚀 Roadmap
+#  Data Persistence
 
-## ✅ Version 1.1 (Current)
+ShelfLife automatically saves inventory data after every change.
+
+Supported formats:
+
+- TXT (default persistent storage)
+- JSON
+- CSV
+
+This allows inventory to persist between application runs and enables easy data sharing through import/export.
+
+---
+
+#  Roadmap
+
+## ✅ Version 2.0 (Current)
 
 - [x] Modular project structure
-- [x] Product class
-- [x] Inventory class
-- [x] Food class
-- [x] Medicine class
-- [x] Electronics class
+- [x] Product hierarchy
+- [x] Inventory management
 - [x] Encapsulation
 - [x] Inheritance
 - [x] Method Overriding
 - [x] Runtime Polymorphism
 - [x] Add products
-- [x] View products
-- [x] Search by ID
-- [x] Search by Name
-- [x] Search by Category
+- [x] Search products
 - [x] Update quantity
 - [x] Remove products
 - [x] Low stock report
 - [x] Expiry report
-- [x] Input validation
+- [x] Automatic save/load
+- [x] JSON export/import
+- [x] CSV export/import
+- [x] Exception handling
 
 ---
 
-## 📂 Version 2
+##  Version 3
 
-- File Handling
-- Save inventory automatically
-- Load inventory on startup
-- Better exception handling
-- Improved terminal UI
-
----
-
-## 📄 Version 3
-
-- JSON support
-- CSV support
-- Data import/export
+- SQLite Database
+- CRUD operations
+- Advanced searching
 - Product statistics
 
 ---
 
-## 🗄️ Version 4
-
-- SQLite Database
-- CRUD using SQL
-- Persistent storage
-- Advanced searching
-
----
-
-## 🖥️ Version 5
+##  Version 4
 
 - Tkinter / CustomTkinter GUI
+- Dashboard
 - Tables
 - Forms
-- Dashboard
+- Charts
 
 ---
 
-## 🌐 Final Version
+##  Final Version
 
 - Django
-- Authentication
+- User Authentication
 - Inventory Dashboard
 - Product Analytics
-- Email Reminder System
+- Email Notifications
+- REST API
 - Deployment
 
 ---
 
-# 🎯 Learning Purpose
-
-ShelfLife is a long-term learning project.
-
-Instead of building everything at once, the project evolves after every major Python topic.
-
-Current progression:
+#  Learning Journey
 
 ```
 OOP
@@ -265,42 +262,51 @@ GUI
 Django
 ```
 
-This repository documents my journey from learning basic Python to building a complete inventory management system.
+ShelfLife grows alongside my Python learning journey, with each version introducing new concepts and technologies.
 
 ---
 
-# Technologies Used
+# 🛠 Technologies Used
 
 - Python 3
 - Object-Oriented Programming
+- File Handling
+- JSON
+- CSV
 - Encapsulation
 - Inheritance
 - Method Overriding
 - Runtime Polymorphism
 - Composition
-- `datetime` module
-- Terminal / Command Line Interface
+- `datetime`
+- Terminal / CLI
 
 ---
 
-# Current Status
+# 📈 Current Status
 
-**Current Version:** `v1.1`
+**Current Version:** `v2.0`
 
-✔️ Modular architecture
+✅ Modular architecture
 
-✔️ Multiple Python modules
+✅ Inventory persistence
 
-✔️ Inheritance implemented
+✅ TXT storage
 
-✔️ Runtime polymorphism implemented
+✅ JSON support
 
-✔️ Core inventory management features completed
+✅ CSV support
+
+✅ Import/Export functionality
+
+✅ Low stock & expiry reporting
+
+✅ OOP concepts implemented
 
 ---
 
-## Future Vision
+#  Future Vision
 
-ShelfLife is not just a practice project—it's a project that will continuously evolve as I learn new technologies.
+ShelfLife is more than a practice project—it's a long-term learning project that evolves with every new Python concept I learn.
 
-The goal is to transform it from a simple terminal application into a complete, production-ready inventory management system with database support, a graphical interface, and a full-stack Django web application.
+The goal is to transform it from a terminal application into a complete inventory management system with database support, a graphical interface, REST APIs, authentication, and a full-stack Django web application.
