@@ -89,7 +89,7 @@ def export_json(products):
                 "warranty": product.get_warranty()
             })
 
-    print(data)
+    #print(data)
     with open("data/inventory.json","w") as file:
         json.dump(data,file,indent=4)
 

@@ -1,6 +1,6 @@
-import os
+# import os
 
-print(os.getcwd())
+# print(os.getcwd())
 
 from services.inventory import Inventory
 #from models.product import Product
