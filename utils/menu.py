@@ -16,4 +16,6 @@ def show_menu():
     print("9. Import from JSON")
     print("10. Export from CSV")
     print("11. Import from CSV\n")
+    print("---- Functionalities------")
+    print("12. Inventory Statistics")
     print("0. Exit!")
