@@ -195,6 +195,11 @@ while True:
             save_inventory(inv.get_products())
             print("CSV Imported Successfully!")
 
+        #------ INVENTORY STATISTICS ------
+
+        elif choice == 12:
+            inv.inventory_statistics()
+
         #--- EXIT ----
 
         elif choice ==0:

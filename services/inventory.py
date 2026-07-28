@@ -86,44 +86,44 @@ class Inventory:
                 print(f"{days} day(s) remaining")
             print()
 
-def inventory_statistics(self):
-    total_products=len(self.__products)
-    total_qty=0
-    food =0
-    medicines=0
-    electronics=0
+    def inventory_statistics(self):
+        total_products=len(self.__products)
+        total_qty=0
+        food =0
+        medicines=0
+        electronics=0
 
-    low_stock=0
-    expired=0
+        low_stock=0
+        expired=0
 
-    for product in self.__products:
-        total_qty += product.get_qty()
+        for product in self.__products:
+            total_qty += product.get_qty()
 
-        category = product.get_category()
+            category = product.get_category()
 
-        if category == "Food":
-            food+=1
-        elif category =="Medicines":
-            medicines+=1
-        elif category == "Electronics":
-            electronics += 1
+            if category == "Food":
+                food+=1
+            elif category =="Medicines":
+                medicines+=1
+            elif category == "Electronics":
+                electronics += 1
 
-        if product.is_low_stock():
-            low_stock += 1
+            if product.is_low_stock():
+                low_stock += 1
 
-        # Electronics don't expire
-        if category != "Electronics":
-            if product.days_left() < 0:
-                expired += 1
+            # Electronics don't expire
+            if category != "Electronics":
+                if product.days_left() < 0:
+                    expired += 1
 
-    print("\n" + "=" * 40)
-    print("      INVENTORY STATISTICS")
-    print("=" * 40)
-    print(f"Total Products     : {total_products}")
-    print(f"Total Quantity     : {total_qty}")
-    print(f"Food Items         : {food}")
-    print(f"Medicine Items     : {medicines}")
-    print(f"Electronics Items  : {electronics}")
-    print(f"Low Stock Products : {low_stock}")
-    print(f"Expired Products   : {expired}")
-    print("=" * 40)
+        print("\n" + "=" * 40)
+        print("      INVENTORY STATISTICS")
+        print("=" * 40)
+        print(f"Total Products     : {total_products}")
+        print(f"Total Quantity     : {total_qty}")
+        print(f"Food Items         : {food}")
+        print(f"Medicine Items     : {medicines}")
+        print(f"Electronics Items  : {electronics}")
+        print(f"Low Stock Products : {low_stock}")
+        print(f"Expired Products   : {expired}")
+        print("=" * 40)
