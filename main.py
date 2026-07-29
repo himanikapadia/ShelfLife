@@ -200,6 +200,21 @@ while True:
         elif choice == 12:
             inv.inventory_statistics()
 
+        #------ SORT PRODUCTS ----
+
+        elif choice == 13:
+            print("\n-"*30)
+            print("SORT OPTIONS")
+            print("-"*30)
+            print("\n1. By ID")
+            print("2. By Name")
+            print("3. By Quantity")
+            print("4. By Category")
+            print("-"* 30)
+
+            choice=input("Enter Choice: ")
+            inv.sort_products(choice)
+
         #--- EXIT ----
 
         elif choice ==0:
