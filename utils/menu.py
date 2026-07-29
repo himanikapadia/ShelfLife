@@ -18,4 +18,5 @@ def show_menu():
     print("11. Import from CSV\n")
     print("---- Functionalities------")
     print("12. Inventory Statistics")
+    print("13. Sort Products")
     print("0. Exit!")
