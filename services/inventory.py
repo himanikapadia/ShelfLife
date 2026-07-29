@@ -5,9 +5,13 @@ class Inventory:
     def __init__(self):
         self.__products=[]
 
+    # Add product
+
     def add_product(self,product):
         self.__products.append(product)
         save_inventory(self.__products)
+
+    # Update Qty
 
     def update_product_qty(self, product_id, amount):
 
@@ -20,6 +24,8 @@ class Inventory:
 
         return False
 
+    # Display Products
+
     def display_products(self):
         if not self.__products:
             print("Inventory is Empty!")
@@ -30,6 +36,8 @@ class Inventory:
 
     def get_products(self):
         return self.__products
+
+    #SEARCH FUNCTIONS
 
     def search_by_Id(self,product_id):  
         for p in self.__products:
@@ -53,6 +61,8 @@ class Inventory:
     def add_loaded_product(self, product):
         self.__products.append(product)
 
+    # Remove Products
+
     def remove_product(self,pid):
         for p in self.__products:
             if p.get_id()==pid:
@@ -62,6 +72,8 @@ class Inventory:
                 return True
         print("Failed Remove!")
         return False
+
+    # Low Stock Products
     
     def low_stock_products(self):
         low_stock=[]
@@ -69,6 +81,9 @@ class Inventory:
             if product.is_low_stock():
                 low_stock.append(product)
         return low_stock
+
+    # Expiry Report
+    
     def expiry_report(self):
         print("\n====== Expiry Report ======")
         for product in self.__products:
@@ -85,6 +100,8 @@ class Inventory:
             else:
                 print(f"{days} day(s) remaining")
             print()
+
+    # Inventory Statistics
 
     def inventory_statistics(self):
         total_products=len(self.__products)
@@ -127,3 +144,14 @@ class Inventory:
         print(f"Low Stock Products : {low_stock}")
         print(f"Expired Products   : {expired}")
         print("=" * 40)
+
+    # SORT FUNCTIONS
+
+    def sort_products(self,choice):
+        if not self.__products:
+            print("Inventory Is Empty!!")
+            return
+
+        if choice == "1":
+            self.__products.sort(key=lambda x: x.get_id())
+            print("Products Sorted by ID.")
