@@ -159,3 +159,18 @@ class Inventory:
         elif choice == "2":
             self.__products.sort(key=lambda x: x.get_name())
             print("Products Sorted by Name.")
+
+        elif choice == "3":
+            self.__products.sort(key=lambda x: x.get_qty())
+            print("Products Sorted by Quantity.")
+
+        elif choice == "4":
+            self.__products.sort(key= lambda x: x.get_category())
+            print("Producrs Sorted by Category.")
+
+        else:
+            print("Invalid Choice!")
+            return
+
+        for x in self.__products:
+            x.display()
