@@ -155,3 +155,7 @@ class Inventory:
         if choice == "1":
             self.__products.sort(key=lambda x: x.get_id())
             print("Products Sorted by ID.")
+
+        elif choice == "2":
+            self.__products.sort(key=lambda x: x.get_name())
+            print("Products Sorted by Name.")
