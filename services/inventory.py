@@ -174,3 +174,27 @@ class Inventory:
 
         for x in self.__products:
             x.display()
+
+    # Filter Functions
+
+    def filter_category(self,category):
+
+        filtered=[]
+        # by category
+        for product in self.__products:
+            if product.get_category.lower()==category.lower():
+                filtered.append(product)
+
+        return filtered
+
+    def filter_lowstock(self):
+
+        filtered=[]
+        for product in self.__products:
+            if product.is_low_stock():
+                filtered.append(product)
+
+        return filtered
+
+    
+
