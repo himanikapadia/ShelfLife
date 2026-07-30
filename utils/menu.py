@@ -20,4 +20,5 @@ def show_menu():
     print("12. Inventory Statistics")
     print("13. Sort Products")
     print("14. Filter Products")
+    print("15. Backup and restore")
     print("0. Exit!")
