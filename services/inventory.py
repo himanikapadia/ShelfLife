@@ -207,3 +207,14 @@ class Inventory:
 
         return filtered
 
+    def filter_expiry(self,days):
+        filtered=[]
+
+        for product in self.__products:
+            if product.get_category()=="Electronics":
+                continue
+            if product.days_left()<=days:
+                filtered.append(product)
+
+        return filtered
+
