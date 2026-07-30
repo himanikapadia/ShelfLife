@@ -13,6 +13,7 @@ from services.file_handler import (
     export_json,
     import_json,
     export_csv,
+    import_csv,
     backup_inventory,
     restore_inventory
 )
@@ -263,6 +264,25 @@ while True:
 
             else:
                 print("Invalid Choice!")
+
+        #---- BACKUP AND RESTORE -----
+
+        elif choice == 15:
+            ch=int(input("Enter (0) for Backup and (1) for Restore: "))
+
+            if ch == 0:
+                backup_inventory()
+
+            elif ch == 1:
+                restore_inventory()
+
+                inv=Inventory()
+                products= load_inventory()
+
+                for i in products:
+                    inv.add_loaded_product(i)
+
+                print("Inventory restored and loaded successfully!")
 
         #--- EXIT ----
 

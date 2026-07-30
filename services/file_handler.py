@@ -228,4 +228,3 @@ def backup_inventory():
 
 def restore_inventory():
     shutil.copy("data/backup.txt", "data/inventory.txt")
-    print("Inventory restored successfully!")
