@@ -203,7 +203,8 @@ while True:
         #------ SORT PRODUCTS ----
 
         elif choice == 13:
-            print("\n-"*30)
+            print()
+            print("-"*30)
             print("SORT OPTIONS")
             print("-"*30)
             print("\n1. By ID")
@@ -218,7 +219,8 @@ while True:
         #----- FILTER PRODUCTS -----
 
         elif choice == 14:
-            print("\n-"*30)
+            print()
+            print("-"*30)
             print("FILTER OPTIONS")
             print("-"*30)
             print("\n1. By Category")
@@ -260,8 +262,6 @@ while True:
 
             else:
                 print("Invalid Choice!")
-                break
-
 
         #--- EXIT ----
 
@@ -271,7 +271,7 @@ while True:
         else:
             print("Invalid Choice!")
         print()
-        
+
     except ValueError:
         print("Please enter a valid number!")
     except Exception as e:
