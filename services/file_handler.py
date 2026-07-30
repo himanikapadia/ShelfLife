@@ -225,3 +225,7 @@ def import_csv():
 def backup_inventory():
     shutil.copy("data/inventory.txt","data/backup.txt")
     print("Inventory backup created successfully!")
+
+def restore_inventory():
+    shutil.copy("data/backup.txt", "data/inventory.txt")
+    print("Inventory restored successfully!")
