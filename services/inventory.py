@@ -196,5 +196,14 @@ class Inventory:
 
         return filtered
 
-    
+    def filter_qty(self,min,max):
+
+        filtered=[]
+        for product in self.__products:
+            qty=product.get_qty()
+
+            if min<=qty<=max:
+                filtered.append(product)
+
+        return filtered
 
