@@ -215,6 +215,54 @@ while True:
             choice=input("Enter Choice: ")
             inv.sort_products(choice)
 
+        #----- FILTER PRODUCTS -----
+
+        elif choice == 14:
+            print("\n-"*30)
+            print("FILTER OPTIONS")
+            print("-"*30)
+            print("\n1. By Category")
+            print("2. By Low Stock")
+            print("3. By Quantity")
+            print("4. By Expiry")
+            print("-"* 30)
+
+            choice = input("Enter choice: ")
+            if choice == "1":
+                category=input("Enter Category: ")
+                products=inv.filter_category(category)
+
+                for i in products:
+                    i.display()
+
+            elif choice == "2":
+                products=inv.filter_lowstock()
+
+                for i in products:
+                    i.display()
+
+            elif choice == "3":
+                min=int(input("Minimum Quantity: "))
+                max=int(input("Maximum Quantity: "))
+
+                products= inv.filter_qty(min,max)
+
+                for i in products:
+                    i.display()
+
+            elif choice == "4":
+                days=int(input("Show products expiring within products: "))
+
+                products=inv.filter_expiry(days)
+
+                for i in products:
+                    i.display()
+
+            else:
+                print("Invalid Choice!")
+                break
+
+
         #--- EXIT ----
 
         elif choice ==0:
@@ -223,6 +271,7 @@ while True:
         else:
             print("Invalid Choice!")
         print()
+        
     except ValueError:
         print("Please enter a valid number!")
     except Exception as e:

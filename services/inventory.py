@@ -182,7 +182,7 @@ class Inventory:
         filtered=[]
         # by category
         for product in self.__products:
-            if product.get_category.lower()==category.lower():
+            if product.get_category().lower()==category.lower():
                 filtered.append(product)
 
         return filtered
