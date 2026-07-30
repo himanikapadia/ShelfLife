@@ -3,6 +3,7 @@ from models.medicines import Medicines
 from models.electronics import Electronics
 import json
 import csv
+import shutil
 
 def save_inventory(products):
     with open("data/inventory.txt","w") as file:
@@ -220,3 +221,7 @@ def import_csv():
             products.append(product)
 
     return products
+
+def backup_inventory():
+    shutil.copy("data/inventory.txt","data/backup.txt")
+    print("Inventory backup created successfully!")
