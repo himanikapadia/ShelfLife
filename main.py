@@ -13,7 +13,8 @@ from services.file_handler import (
     export_json,
     import_json,
     export_csv,
-    import_csv
+    backup_inventory,
+    restore_inventory
 )
 
 from utils.menu import show_menu
