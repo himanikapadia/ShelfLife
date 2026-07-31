@@ -50,7 +50,14 @@ while True:
             ptype=int(input("Enter Your choice: "))
 
             print("~ Enter Product Details ~")
-            pid=int(input("ID: "))
+            #print("Loaded Products:", len(inv.get_products()))
+            while True:
+                pid = int(input("ID: "))
+                if inv.id_exists(pid):
+                    print("Product ID already exists. Please enter another ID.")
+                else:
+                    break
+
             pname=input("Name: ")
             qty=int(input("Quantity: "))
 

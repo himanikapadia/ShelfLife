@@ -28,7 +28,7 @@
         "type": "Medicines",
         "id": 105,
         "name": "Paracetamol",
-        "quantity": 5,
+        "quantity": 6,
         "expiry": "03-09-2027",
         "manufacturer": "Combiflam",
         "prescription": "No"
