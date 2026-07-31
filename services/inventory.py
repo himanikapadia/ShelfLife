@@ -11,6 +11,14 @@ class Inventory:
         self.__products.append(product)
         save_inventory(self.__products)
 
+    # Prevent Duplicate Ids
+
+    def id_exists(self, product_id):
+        for product in self.__products:
+            if product.get_id() == product_id:
+                return True
+        return False
+
     # Update Qty
 
     def update_product_qty(self, product_id, amount):
