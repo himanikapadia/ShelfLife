@@ -7,5 +7,30 @@
         "expiry": "24-08-2026",
         "manufacturer": "Cipla",
         "prescription": "yes"
+    },
+    {
+        "type": "Electronics",
+        "id": 103,
+        "name": "Laptop",
+        "quantity": 2,
+        "brand": "Asus",
+        "warranty": 6
+    },
+    {
+        "type": "Food",
+        "id": 104,
+        "name": "Milk",
+        "quantity": 3,
+        "expiry": "01-09-2026",
+        "storage": "Refrigerated"
+    },
+    {
+        "type": "Medicines",
+        "id": 105,
+        "name": "Paracetamol",
+        "quantity": 5,
+        "expiry": "03-09-2027",
+        "manufacturer": "Combiflam",
+        "prescription": "No"
     }
 ]

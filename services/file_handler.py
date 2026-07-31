@@ -51,8 +51,8 @@ def load_inventory():
                     int(data[1]),
                     data[2],
                     int(data[3]),
-                    int(data[4]),
-                    data[5]
+                    int(data[5]),
+                    data[6]
                 )
             products.append(product)
     return products
