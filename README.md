@@ -284,17 +284,25 @@ Django
 
 # 📸 Screenshots
 
-```markdown
+## 🏠 Main Menu
+
 ![Main Menu](assets/menu.png)
 
-![Main Menu](assets/project_structure.png)
+## 🗂️ Project Structure
 
-![Statistics](assets/inventory_statistics.png)
+![Project Structure](assets/project_structure.png)
 
-![Backup](assets/filter_products.png)
+## 📊 Inventory Statistics
 
-![Main Menu](assets/search_products.png)
-```
+![Inventory Statistics](assets/inventory_statistics.png)
+
+## 🔍 Filter Products
+
+![Filter Products](assets/filter_products.png)
+
+## 🔎 Search Products
+
+![Search Products](assets/search_products.png)
 
 ---
 
