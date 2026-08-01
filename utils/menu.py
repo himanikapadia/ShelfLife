@@ -1,6 +1,6 @@
 def show_menu():
     print("="*40)
-    print("\tShelfLife V2")
+    print("\tShelfLife V3.0")
     print("Terminal Inventory Management System")
     print("="*40)
     print("1. Add Product")

@@ -28,7 +28,7 @@ for product in products:
     inv.add_loaded_product(product)
 
 print("=" * 40)
-print("Welcome to ShelfLife V2")
+print("Welcome to ShelfLife V3.0")
 print(f"{len(products)} products loaded successfully.")
 print("=" * 40)
 

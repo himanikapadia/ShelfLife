@@ -284,7 +284,7 @@ Django
 
 # 📸 Screenshots
 
-## 🏠 Main Menu
+## -  Main Menu
 
 ![Main Menu](assets/menu.png)
 
@@ -302,7 +302,7 @@ Django
 
 ## 🔎 Search Products
 
-![Search Products](assets/search_products.png)
+![Search Products](assets/search_functions.png)
 
 ---
 
