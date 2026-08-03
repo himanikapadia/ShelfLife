@@ -1,7 +1,7 @@
 # import os
 
 # print(os.getcwd())
-
+from services.database import create_table
 from services.inventory import Inventory
 #from models.product import Product
 from models.food import Food
@@ -21,7 +21,7 @@ from services.file_handler import (
 from utils.menu import show_menu
 
 # Initialize Inventory
-
+create_table()
 inv=Inventory()
 products=load_inventory()
 for product in products:
