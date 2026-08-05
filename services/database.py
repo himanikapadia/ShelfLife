@@ -63,3 +63,20 @@ def insert_product(product):
                            None,
                            None
                        ))
+
+    elif isinstance(product, Electronics):
+        cursor.execute("""INSERT INTO products VALUES(?,?,?,?,?,?,?,?,?,?)""",
+                       (
+                            product.get_id(),
+                            product.get_name(),
+                            product.get_category(),
+                            product.get_qty(),
+                            "N/A",
+                            None,
+                            None,
+                            None,
+                            product.get_warranty(),
+                            product.get_brand()
+                       ))
+    conn.commit()
+    conn.close()
