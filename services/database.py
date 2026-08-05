@@ -1,5 +1,9 @@
 import sqlite3
 
+from models.food import Food
+from models.electronics import Electronics
+from models.medicines import Medicines
+
 def connect_db():
     conn=sqlite3.connect("data/inventory.db")
     return conn 
@@ -25,3 +29,7 @@ def create_table():
 
     conn.commit()
     conn.close()
+
+def insert_product(product):
+    conn= connect_db()
+    cursor= conn.cursor()
