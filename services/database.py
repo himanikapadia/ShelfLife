@@ -48,3 +48,18 @@ def insert_product(product):
                            None,
                            None
                        ))
+
+    elif isinstance(product, Medicines):
+        cursor.execute("""INSERT INTO products VALUES(?,?,?,?,?,?,?,?,?,?)""",
+                       (
+                           product.get_id(),
+                           product.get_name(),
+                           product.get_category(),
+                           product.get_qty(),
+                           product.get_expiry(),
+                           None,
+                           product.get_manufacturer(),
+                           product.get_prescription(),
+                           None,
+                           None
+                       ))
