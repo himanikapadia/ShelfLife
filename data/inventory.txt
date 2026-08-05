@@ -2,3 +2,4 @@ Medicines|101|Crocin|4|24-08-2026|Cipla|yes
 Electronics|103|Laptop|2|N/A|6|Asus
 Food|104|Milk|3|01-09-2026|Refrigerated
 Medicines|105|Paracetamol|6|03-09-2027|Combiflam|No
+Electronics|102|Laptop|1|N/A|12|Asus
