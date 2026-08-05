@@ -33,3 +33,18 @@ def create_table():
 def insert_product(product):
     conn= connect_db()
     cursor= conn.cursor()
+
+    if isinstance(product, Food):
+        cursor.execute("""INSERT INTO products VALUES(?,?,?,?,?,?,?,?,?,?)""", 
+                       (
+                           product.get_id(),
+                           product.get_name(),
+                           product.get_category(),
+                           product.get_qty(),
+                           product.get_expiry(),
+                           product.get_storage(),
+                           None,
+                           None,
+                           None,
+                           None
+                       ))
