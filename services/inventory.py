@@ -1,4 +1,5 @@
 from services.file_handler import save_inventory
+from services.database import insert_product
 from datetime import datetime
 
 class Inventory:
@@ -9,7 +10,7 @@ class Inventory:
 
     def add_product(self,product):
         self.__products.append(product)
-        save_inventory(self.__products)
+        insert_product(product)
 
     # Prevent Duplicate Ids
 
