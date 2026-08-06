@@ -2,13 +2,14 @@
 
 # print(os.getcwd())
 from services.database import create_table
+from services.database import load_products
 from services.inventory import Inventory
 #from models.product import Product
 from models.food import Food
 from models.medicines import Medicines
 from models.electronics import Electronics
 from services.file_handler import (
-    load_inventory,
+    #load_inventory,
     save_inventory,
     export_json,
     import_json,
@@ -22,8 +23,8 @@ from utils.menu import show_menu
 
 # Initialize Inventory
 create_table()
+products=load_products()
 inv=Inventory()
-products=load_inventory()
 for product in products:
     inv.add_loaded_product(product)
 
@@ -284,7 +285,7 @@ while True:
                 restore_inventory()
 
                 inv=Inventory()
-                products= load_inventory()
+                products= load_products()
 
                 for i in products:
                     inv.add_loaded_product(i)
