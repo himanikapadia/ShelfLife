@@ -99,5 +99,15 @@ def load_products():
                 i[4],      # expiry
                 i[5]       # storage
             )
+        elif i[2]== "Medicines":
+            product=Medicines(
+                i[0],      # id
+                i[1],      # name
+                i[3],      # quantity
+                i[4],      # expiry
+                i[6],      #Manufacturer
+                i[7]       #Prescription
+            )
+        
 
 
