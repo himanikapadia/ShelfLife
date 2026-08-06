@@ -80,3 +80,24 @@ def insert_product(product):
                        ))
     conn.commit()
     conn.close()
+
+def load_products():
+    conn=connect_db()
+    cursor=conn.cursor()
+
+    cursor.execute("SELECT * FROM products")
+    rows=cursor.fetchall()
+
+    products=[]
+
+    for i in rows:
+        if i[2]=="Food":
+            product=Food(
+                i[0],      # id
+                i[1],      # name
+                i[3],      # quantity
+                i[4],      # expiry
+                i[5]       # storage
+            )
+
+
