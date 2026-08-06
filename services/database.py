@@ -105,9 +105,21 @@ def load_products():
                 i[1],      # name
                 i[3],      # quantity
                 i[4],      # expiry
-                i[6],      #Manufacturer
-                i[7]       #Prescription
+                i[6],      # Manufacturer
+                i[7]       # Prescription
             )
-        
+        elif i[2]== "Electronics":
+            product=Electronics(
+                i[0],      # id
+                i[1],      # name
+                i[3],      # quantity
+                i[8],      # Warranty
+                i[9]       # Brand
+            )
+        else:
+            continue
 
+        products.append(product)
+    conn.close()
+    return products
 
