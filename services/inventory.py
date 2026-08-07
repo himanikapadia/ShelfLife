@@ -1,6 +1,7 @@
 from services.file_handler import save_inventory
 from services.database import insert_product
 from datetime import datetime
+from services.database import update_quantity
 
 class Inventory:
     def __init__(self):
