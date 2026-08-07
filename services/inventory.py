@@ -28,9 +28,9 @@ class Inventory:
         product = self.search_by_Id(product_id)
 
         if product:
-            product.update_qty(amount)
-            save_inventory(self.__products)
-            return True
+            if product.update_qty(amount):
+                update_quantity(product_id,product.get_qty())
+                return True
 
         return False
 
