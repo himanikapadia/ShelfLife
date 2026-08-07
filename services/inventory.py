@@ -1,7 +1,7 @@
 from services.file_handler import save_inventory
 from services.database import insert_product
 from datetime import datetime
-from services.database import update_quantity
+from services.database import update_qty
 
 class Inventory:
     def __init__(self):
@@ -29,7 +29,7 @@ class Inventory:
 
         if product:
             if product.update_qty(amount):
-                update_quantity(product_id,product.get_qty())
+                update_qty(product_id,product.get_qty())
                 return True
 
         return False
