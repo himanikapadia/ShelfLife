@@ -123,3 +123,11 @@ def load_products():
     conn.close()
     return products
 
+def update_qty(product_id,quantity):
+    conn= connect_db()
+    cursor=conn.cursor()
+
+    cursor.execute("""UPDATE products SET quantity=? WHERE id = ?""",(quantity,product_id))
+    conn.commit()
+    conn.close()
+
