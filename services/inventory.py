@@ -81,6 +81,7 @@ class Inventory:
                 product for product in self.__products
                 if product.get_id() != product_id
             ]
+            print("Product Removed successfully!")
             return True
         print("Failed Remove!")
         return False
