@@ -153,3 +153,10 @@ def delete_product(product_id):
 def search_by_id(product_id):
     conn=connect_db()
     cursor=conn.cursor()
+
+    cursor.execute("""SEARCH * FROM product where id = ?""",(product_id,))
+
+    row=cursor.fetchone()
+
+    conn.close()
+    return row
