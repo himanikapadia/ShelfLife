@@ -2,6 +2,7 @@ from services.file_handler import save_inventory
 from services.database import insert_product
 from datetime import datetime
 from services.database import update_qty
+from services.database import delete_product
 
 class Inventory:
     def __init__(self):
@@ -73,13 +74,14 @@ class Inventory:
 
     # Remove Products
 
-    def remove_product(self,pid):
-        for p in self.__products:
-            if p.get_id()==pid:
-                self.__products.remove(p)
-                print(f"Product: {pid} is Removed Successfully!")
-                save_inventory(self.__products)
-                return True
+    def remove_product(self,product_id):
+        if delete_product(product_id):
+
+            self.__products = [
+                product for product in self.__products
+                if product.get_id() != product_id
+            ]
+            return True
         print("Failed Remove!")
         return False
 
