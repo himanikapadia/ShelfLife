@@ -133,3 +133,9 @@ def update_qty(product_id,quantity):
     print("Rows updated:", cursor.rowcount)
     conn.close()
 
+def delete_product(product_id):
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    
+
