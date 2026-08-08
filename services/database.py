@@ -149,3 +149,7 @@ def delete_product(product_id):
     conn.close()
 
     return deleted > 0
+
+def search_by_id(product_id):
+    conn=connect_db()
+    cursor=conn.cursor()
