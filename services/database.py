@@ -136,6 +136,16 @@ def update_qty(product_id,quantity):
 def delete_product(product_id):
     conn = connect_db()
     cursor = conn.cursor()
-
     
+    cursor.execute("""
+        DELETE FROM products
+        WHERE id = ?
+    """, (product_id,))
 
+    conn.commit()
+
+    deleted = cursor.rowcount
+
+    conn.close()
+
+    return deleted > 0
