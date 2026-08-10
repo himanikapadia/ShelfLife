@@ -164,3 +164,8 @@ def search_by_id(product_id):
 def search_by_name(name):
     conn=connect_db()
     cursor=conn.execute()
+
+    cursor.execute("""
+        SELECT * FROM products
+        WHERE name LIKE ?
+    """, (f"%{name}%",))
