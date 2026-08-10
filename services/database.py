@@ -169,3 +169,9 @@ def search_by_name(name):
         SELECT * FROM products
         WHERE name LIKE ?
     """, (f"%{name}%",))
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows
