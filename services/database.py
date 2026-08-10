@@ -160,3 +160,7 @@ def search_by_id(product_id):
 
     conn.close()
     return row
+
+def search_by_name(name):
+    conn=connect_db()
+    cursor=conn.execute()
