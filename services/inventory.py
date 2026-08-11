@@ -55,17 +55,10 @@ class Inventory:
          return search_by_id(product_id)
         
     def search_by_name(self,name):
-        for p in self.__products:
-            if p.get_name()==name:
-                return p
-        return None
+         return search_by_id(name)
         
     def search_by_category(self,category):
-        products=[]
-        for p in self.__products:
-            if p.get_category().lower()==category.lower():
-                products.append(p)
-        return products
+         return search_by_id(category)
 
     def add_loaded_product(self, product):
         self.__products.append(product)
