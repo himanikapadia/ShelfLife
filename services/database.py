@@ -180,4 +180,10 @@ def search_by_category(category):
     conn=connect_db()
     cursor=conn.execute()
 
-   # cursor.execute("""SELECT * FROM products""")
+    cursor.execute("""SELECT * FROM products WHERE category= ?""",(category,))
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows
