@@ -3,8 +3,11 @@ from services.database import insert_product
 from datetime import datetime
 from services.database import update_qty
 from services.database import delete_product
-from services.database import search_by_id, search_by_name, search_by_category
-
+from services.database import (
+    search_by_id as db_search_by_id,
+    search_by_name as db_search_by_name,
+    search_by_category as db_search_by_category
+)
 class Inventory:
     def __init__(self):
         self.__products=[]
@@ -52,13 +55,13 @@ class Inventory:
     #SEARCH FUNCTIONS
 
     def search_by_Id(self,product_id):  
-         return search_by_id(product_id)
+         return db_search_by_id(product_id)
         
     def search_by_name(self,name):
-         return search_by_id(name)
+         return db_search_by_name(name)
         
     def search_by_category(self,category):
-         return search_by_id(category)
+         return db_search_by_category(category)
 
     def add_loaded_product(self, product):
         self.__products.append(product)
