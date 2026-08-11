@@ -16,7 +16,10 @@ from services.file_handler import (
     export_csv,
     import_csv,
     backup_inventory,
-    restore_inventory
+    restore_inventory,
+    search_by_id,
+    search_by_name,
+    search_by_category
 )
 
 from utils.menu import show_menu
