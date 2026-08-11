@@ -175,3 +175,9 @@ def search_by_name(name):
     conn.close()
 
     return rows
+
+def search_by_category(category):
+    conn=connect_db()
+    cursor=conn.execute()
+
+   # cursor.execute("""SELECT * FROM products""")
