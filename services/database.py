@@ -154,7 +154,7 @@ def search_by_id(product_id):
     conn=connect_db()
     cursor=conn.cursor()
 
-    cursor.execute("""SELECT * FROM product where id = ?""",(product_id,))
+    cursor.execute("""SELECT * FROM products where id = ?""",(product_id,))
 
     row=cursor.fetchone()
 

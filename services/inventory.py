@@ -3,11 +3,7 @@ from services.database import insert_product
 from datetime import datetime
 from services.database import update_qty
 from services.database import delete_product
-from services.database import (
-    search_by_id as db_search_by_id,
-    search_by_name as db_search_by_name,
-    search_by_category as db_search_by_category
-)
+
 class Inventory:
     def __init__(self):
         self.__products=[]
@@ -17,6 +13,10 @@ class Inventory:
     def add_product(self,product):
         self.__products.append(product)
         insert_product(product)
+
+    # Add product loaded from database
+    def add_loaded_product(self, product):
+        self.__products.append(product)
 
     # Prevent Duplicate Ids
 
@@ -54,17 +54,31 @@ class Inventory:
 
     #SEARCH FUNCTIONS
 
-    def search_by_Id(self,product_id):  
-         return db_search_by_id(product_id)
-        
-    def search_by_name(self,name):
-         return db_search_by_name(name)
-        
-    def search_by_category(self,category):
-         return db_search_by_category(category)
+    def search_by_Id(self, product_id):
+        for product in self.__products:
+            if product.get_id() == product_id:
+                return product
+        return None
 
-    def add_loaded_product(self, product):
-        self.__products.append(product)
+
+    def search_by_name(self, name):
+        result = []
+
+        for product in self.__products:
+            if name.lower() in product.get_name().lower():
+                result.append(product)
+
+        return result
+
+
+    def search_by_category(self, category):
+        result = []
+
+        for product in self.__products:
+            if product.get_category().lower() == category.lower():
+                result.append(product)
+
+        return result
 
     # Remove Products
 

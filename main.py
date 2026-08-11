@@ -116,7 +116,8 @@ while True:
                 product=inv.search_by_name(name)
                 if product:
                     print("\nProduct Found!")
-                    product.display()
+                    for product in products:
+                        product.display()
                 else:
                     print("\nProduct Not Found!")
             elif ch == 3:
