@@ -202,3 +202,9 @@ def inventory_statistics():
         FROM products
         GROUP BY category
     """)
+
+    category_counts = cursor.fetchall()
+
+    conn.close()
+
+    return total_products, total_quantity, category_counts
