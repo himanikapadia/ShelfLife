@@ -193,3 +193,6 @@ def inventory_statistics():
 
     cursor.execute("SELECT COUNT(*) FROM products")
     total_products = cursor.fetchone()[0]
+
+    cursor.execute("SELECT SUM(quantity) FROM products")
+    total_quantity = cursor.fetchone()[0]
