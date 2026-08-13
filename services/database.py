@@ -187,3 +187,6 @@ def search_by_category(category):
     conn.close()
 
     return rows
+def inventory_statistics():
+    conn = connect_db()
+    cursor = conn.cursor()
