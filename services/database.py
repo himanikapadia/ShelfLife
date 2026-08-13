@@ -190,3 +190,6 @@ def search_by_category(category):
 def inventory_statistics():
     conn = connect_db()
     cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM products")
+    total_products = cursor.fetchone()[0]
