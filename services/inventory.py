@@ -3,6 +3,7 @@ from services.database import insert_product
 from datetime import datetime
 from services.database import update_qty
 from services.database import delete_product
+from services.database import inventory_statistics
 
 class Inventory:
     def __init__(self):
@@ -125,46 +126,16 @@ class Inventory:
     # Inventory Statistics
 
     def inventory_statistics(self):
-        total_products=len(self.__products)
-        total_qty=0
-        food =0
-        medicines=0
-        electronics=0
+        total_products, total_quantity, category_counts = inventory_statistics()
+        
+        print("\n===== INVENTORY STATISTICS =====")
+        print("Total Products:", total_products)
+        print("Total Quantity:", total_quantity)
 
-        low_stock=0
-        expired=0
+        print("\nProducts by Category:")
 
-        for product in self.__products:
-            total_qty += product.get_qty()
-
-            category = product.get_category()
-
-            if category == "Food":
-                food+=1
-            elif category =="Medicines":
-                medicines+=1
-            elif category == "Electronics":
-                electronics += 1
-
-            if product.is_low_stock():
-                low_stock += 1
-
-            # Electronics don't expire
-            if category != "Electronics":
-                if product.days_left() < 0:
-                    expired += 1
-
-        print("\n" + "=" * 40)
-        print("      INVENTORY STATISTICS")
-        print("=" * 40)
-        print(f"Total Products     : {total_products}")
-        print(f"Total Quantity     : {total_qty}")
-        print(f"Food Items         : {food}")
-        print(f"Medicine Items     : {medicines}")
-        print(f"Electronics Items  : {electronics}")
-        print(f"Low Stock Products : {low_stock}")
-        print(f"Expired Products   : {expired}")
-        print("=" * 40)
+        for category, count in category_counts:
+            print(f"{category}: {count}")
 
     # SORT FUNCTIONS
 
