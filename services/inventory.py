@@ -127,7 +127,7 @@ class Inventory:
 
     def inventory_statistics(self):
         total_products, total_quantity, category_counts = inventory_statistics()
-        
+
         print("\n===== INVENTORY STATISTICS =====")
         print("Total Products:", total_products)
         print("Total Quantity:", total_quantity)
@@ -199,13 +199,14 @@ class Inventory:
 
         return filtered
 
-    def filter_expiry(self,days):
-        filtered=[]
+    def filter_expiry(self, days):
+        filtered = []
 
         for product in self.__products:
-            if product.get_category()=="Electronics":
+            if product.get_category().lower() == "electronics":
                 continue
-            if product.days_left()<=days:
+
+            if product.days_left() <= days:
                 filtered.append(product)
 
         return filtered
