@@ -220,4 +220,3 @@ def create_views():
     #Food and Medicine expiry view
     cursor.execute("""CREATE VIEW IF NOT EXISTS expiring_products AS
     SELECT * FROM products WHERE category != 'Electronics' """)
-    
