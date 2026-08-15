@@ -220,3 +220,11 @@ def create_views():
     #Food and Medicine expiry view
     cursor.execute("""CREATE VIEW IF NOT EXISTS expiring_products AS
     SELECT * FROM products WHERE category != 'Electronics' """)
+
+    #Category Summary View
+    cursor.execute("""CREATE VIEW IF EXISTS category_summary AS
+    SELECT category,COUNT(*) AS total_products, SUM(quantity) AS total_quantity FROM
+    products GROUP BY category""")
+
+    conn.commit()
+    conn.close()
