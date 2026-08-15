@@ -214,3 +214,7 @@ def create_views():
     cursor=conn.cursor()
 
     #Low stock view
+    cursor.execute("""CREATE VIEW IF NOT EXISTS low_stock_products AS 
+    SELECT * FROM products  WHERE quantity <= 2""")
+
+    
