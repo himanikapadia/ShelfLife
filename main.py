@@ -230,49 +230,49 @@ while True:
         #----- FILTER PRODUCTS -----
 
         elif choice == 14:
-            print()
-            print("-"*30)
-            print("FILTER OPTIONS")
-            print("-"*30)
-            print("\n1. By Category")
-            print("2. By Low Stock")
-            print("3. By Quantity")
-            print("4. By Expiry")
-            print("-"* 30)
 
-            choice = input("Enter choice: ")
-            if choice == "1":
-                category=input("Enter Category: ")
-                products=inv.filter_category(category)
+            print("\n---- Filter Products ----")
+            print("1. Filter by Category")
+            print("2. Filter by Low Stock")
+            print("3. Filter by Quantity Range")
+            print("4. Filter by Expiry")
 
-                for i in products:
-                    i.display()
+            ch = input("Enter Choice: ")
 
-            elif choice == "2":
-                products=inv.filter_lowstock()
+            products = []
 
-                for i in products:
-                    i.display()
+            if ch == "1":
+                category = input("Enter Category: ")
+                products = inv.filter_category(category)
 
-            elif choice == "3":
-                min=int(input("Minimum Quantity: "))
-                max=int(input("Maximum Quantity: "))
+            elif ch == "2":
+                products = inv.filter_lowstock()
 
-                products= inv.filter_qty(min,max)
+            elif ch == "3":
+                minimum = int(input("Enter Minimum Quantity: "))
+                maximum = int(input("Enter Maximum Quantity: "))
 
-                for i in products:
-                    i.display()
+                products = inv.filter_qty(minimum, maximum)
 
-            elif choice == "4":
-                days=int(input("Show products expiring within products: "))
-
-                products=inv.filter_expiry(days)
-
-                for i in products:
-                    i.display()
+            elif ch == "4":
+                days = int(input("Show products expiring within how many days? "))
+                products = inv.filter_expiry(days)
 
             else:
                 print("Invalid Choice!")
+                continue
+
+            # Check result
+            if len(products) > 0:
+
+                print("\n===== Filtered Products =====")
+
+                for product in products:
+                    product.display()
+
+            else:
+
+                print("\nNo products found!")
 
         #---- BACKUP AND RESTORE -----
 
