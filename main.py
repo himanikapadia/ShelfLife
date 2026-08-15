@@ -21,6 +21,7 @@ from utils.menu import show_menu
 
 # Initialize Inventory
 create_table()
+create_views()
 products=load_products()
 inv=Inventory()
 for product in products:
