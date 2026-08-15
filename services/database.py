@@ -208,3 +208,9 @@ def inventory_statistics():
     conn.close()
 
     return total_products, total_quantity, category_counts
+
+def create_views():
+    conn=connect_db()
+    cursor=conn.cursor()
+
+    #Low stock view
