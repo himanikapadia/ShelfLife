@@ -1,8 +1,6 @@
 # import os
-
 # print(os.getcwd())
-from services.database import create_table
-from services.database import load_products
+from services.database import create_table, load_products, create_views
 from services.inventory import Inventory
 #from models.product import Product
 from models.food import Food
