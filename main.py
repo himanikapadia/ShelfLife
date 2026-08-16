@@ -159,13 +159,15 @@ while True:
         # ---- LOW STOCK -----
 
         elif choice == 6:
-            products=inv.low_stock_products()
-            if products:
-                print("\n==== Low Stock Products ====")
-                for product in products:
-                    product.display()
+            rows = get_low_stock_view()
+
+            if rows:
+                print("\n===== LOW STOCK PRODUCTS =====")
+
+                for row in rows:
+                    print(row)
             else:
-                print("\nNo low stock products found.")
+                print("\nNo low stock products found!")
 
         #----- EXPIRY REPORT -----
         
