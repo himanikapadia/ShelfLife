@@ -228,3 +228,7 @@ def create_views():
 
     conn.commit()
     conn.close()
+
+def get_low_stock_view():
+    conn = connect_db()
+    cursor = conn.cursor()
