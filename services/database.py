@@ -232,3 +232,14 @@ def create_views():
 def get_low_stock_view():
     conn = connect_db()
     cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM low_stock_products
+    """)
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows
