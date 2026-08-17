@@ -243,3 +243,16 @@ def get_low_stock_view():
     conn.close()
 
     return rows
+
+def create_category_details_tables():
+    conn=connect_db()
+    cursor=conn.cursor()
+
+    cursor.execute(""" CREATE TABLE IF NOT EXISTS category_details(
+            category_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            category_name TEXT UNIQUE NOT NULL,
+            description TEXT
+        )""")
+
+    conn.commit()
+    conn.close()
