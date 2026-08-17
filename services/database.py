@@ -244,7 +244,7 @@ def get_low_stock_view():
 
     return rows
 
-def create_category_details_tables():
+def create_category_details_table():
     conn=connect_db()
     cursor=conn.cursor()
 
@@ -253,6 +253,23 @@ def create_category_details_tables():
             category_name TEXT UNIQUE NOT NULL,
             description TEXT
         )""")
+
+    conn.commit()
+    conn.close()
+
+def insert_categories():
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    categories=[
+        ("Food", "Food and grocery products"),
+        ("Medicines", "Medicines and healthcare products"),
+        ("Electronics", "Electronic products and devices")
+    ]
+
+    cursor.executemany("""INSERT OR IGNORE INTO category_details
+        (category_name, description)
+        VALUES (?, ?)""",categories)
 
     conn.commit()
     conn.close()
