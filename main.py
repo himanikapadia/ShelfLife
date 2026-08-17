@@ -4,7 +4,8 @@ from services.database import (
     create_table,
     create_category_details_table,
     insert_categories,
-    load_products
+    load_products,
+    create_views
 )
 from services.inventory import Inventory
 from services.database import get_low_stock_view
