@@ -277,3 +277,21 @@ def insert_categories():
 def get_products_with_categories():
     conn = connect_db()
     cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT
+            products.id,
+            products.name,
+            products.category,
+            products.quantity,
+            category_details.description
+        FROM products
+        INNER JOIN category_details
+        ON products.category = category_details.category_name
+    """)
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows
