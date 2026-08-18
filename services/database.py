@@ -273,3 +273,7 @@ def insert_categories():
 
     conn.commit()
     conn.close()
+
+def get_products_with_categories():
+    conn = connect_db()
+    cursor = conn.cursor()
