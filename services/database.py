@@ -295,3 +295,24 @@ def get_products_with_categories():
     conn.close()
 
     return rows
+
+def get_all_products_with_categories():
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT
+            products.id,
+            products.name,
+            products.category,
+            category_details.description
+        FROM products
+        LEFT JOIN category_details
+        ON products.category = category_details.category_name
+    """)
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows
