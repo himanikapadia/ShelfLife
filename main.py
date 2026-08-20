@@ -3,6 +3,7 @@
 from services.database import (
     create_table,
     create_category_details_table,
+    get_products_with_categories,
     insert_categories,
     load_products,
     create_views
