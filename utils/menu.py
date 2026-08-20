@@ -21,4 +21,5 @@ def show_menu():
     print("13. Sort Products")
     print("14. Filter Products")
     print("15. Backup and restore")
+    print("16. Category Details")
     print("0. Exit!")

@@ -304,6 +304,23 @@ while True:
 
                 print("Inventory restored and loaded successfully!")
 
+        # ------ CATEGORY DETAILS -----
+        elif choice == 16:
+            print("\n===== PRODUCTS WITH CATEGORY DETAILS =====")
+
+            rows = get_products_with_categories()
+
+            if not rows:
+                print("No products found!")
+            else:
+                for row in rows:
+                    print("\n-----------------------------")
+                    print(f"ID          : {row[0]}")
+                    print(f"Name        : {row[1]}")
+                    print(f"Category    : {row[2]}")
+                    print(f"Quantity    : {row[3]}")
+                    print(f"Description : {row[4]}")
+
         #--- EXIT ----
 
         elif choice ==0:
