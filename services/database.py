@@ -316,3 +316,9 @@ def get_all_products_with_categories():
     conn.close()
 
     return rows
+
+def category_summary():
+    conn= connect_db()
+    cursor=conn.cursor()
+
+    
