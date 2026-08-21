@@ -323,6 +323,36 @@ while True:
                     print(f"Quantity    : {row[3]}")
                     print(f"Description : {row[4]}")
 
+        # ----- CATEGORY SQL REPORTS ----
+
+        elif choice == 17:
+
+            print("\n---- SQL GROUP BY / HAVING ----")
+            print("1. Category Summary")
+            print("2. Categories by Minimum Quantity")
+
+            ch = input("Enter Choice: ")
+
+            if ch == "1":
+                rows = category_summary()
+
+            elif ch == "2":
+                minimum = int(input("Minimum Total Quantity: "))
+                rows = category_quantity_report(minimum)
+
+            else:
+                print("Invalid Choice!")
+                continue
+
+            if rows:
+                for row in rows:
+                    print("\n-------------------------")
+                    print(f"Category       : {row[0]}")
+                    print(f"Total Products : {row[1]}")
+                    print(f"Total Quantity : {row[2]}")
+            else:
+                print("\nNo results found!")
+
         #--- EXIT ----
 
         elif choice ==0:
