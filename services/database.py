@@ -326,3 +326,9 @@ def category_summary():
 
     conn.close()
     return rows
+
+def category_quantity_report():
+    conn = connect_db()
+    cursor=conn.cursor()
+
+    
