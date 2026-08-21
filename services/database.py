@@ -327,8 +327,14 @@ def category_summary():
     conn.close()
     return rows
 
-def category_quantity_report():
+def category_quantity_report(min_quantity):
     conn = connect_db()
     cursor=conn.cursor()
 
-    
+    cursor.execute("""SELECT category, COUNT(*) as Total_products, SUM(quantity) as Total_qty FROM products GROUP BY category HAVING SUM(quantity)>= ?""",(min_quantity,))
+
+    rows= cursor.fetchall()
+
+    conn.close()
+
+    return rows
