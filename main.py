@@ -6,7 +6,9 @@ from services.database import (
     get_products_with_categories,
     insert_categories,
     load_products,
-    create_views
+    create_views,
+    category_summary,
+    category_quantity_report
 )
 from services.inventory import Inventory
 from services.database import get_low_stock_view
