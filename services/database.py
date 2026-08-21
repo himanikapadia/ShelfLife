@@ -321,4 +321,8 @@ def category_summary():
     conn= connect_db()
     cursor=conn.cursor()
 
-    
+    cursor.execute("""SELECT category, COUNT(*) as Total_products,SUM(quantity) as Total_qty FROM products GROUP BY category""")
+    rows= cursor.fetchall()
+
+    conn.close()
+    return rows
