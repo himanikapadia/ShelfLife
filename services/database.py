@@ -355,3 +355,16 @@ def product_below_avgQty():
 def create_indexes():
     conn = connect_db()
     cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE INDEX IF NOT EXISTS idx_products_name
+        ON products(name)
+    """)
+
+    cursor.execute("""
+        CREATE INDEX IF NOT EXISTS idx_products_category
+        ON products(category)
+    """)
+
+    conn.commit()
+    conn.close()
