@@ -25,7 +25,8 @@ from services.file_handler import (
     export_csv,
     import_csv,
     backup_inventory,
-    restore_inventory
+    restore_inventory,
+    create_indexes
 )
 
 from utils.menu import show_menu
