@@ -8,7 +8,8 @@ from services.database import (
     load_products,
     create_views,
     category_summary,
-    category_quantity_report
+    category_quantity_report,
+    product_below_avgQty
 )
 from services.inventory import Inventory
 from services.database import get_low_stock_view
