@@ -351,3 +351,7 @@ def product_below_avgQty():
     conn.close()
 
     return rows
+
+def create_indexes():
+    conn = connect_db()
+    cursor = conn.cursor()
