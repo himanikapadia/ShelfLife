@@ -338,3 +338,16 @@ def category_quantity_report(min_quantity):
     conn.close()
 
     return rows
+
+def product_below_avgQty():
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("""SELECT id, name, category, quantity 
+    FROM products WHERE quantity < (SELECT AVG(quantity) FROM products)""")
+
+    rows=cursor.fetchall()
+
+    conn.close()
+
+    return rows
