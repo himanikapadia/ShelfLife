@@ -23,4 +23,5 @@ def show_menu():
     print("15. Backup and restore")
     print("16. Category Details")
     print("17. Category SQL Reports")
+    print("18. Products below average Quantity")
     print("0. Exit!")
