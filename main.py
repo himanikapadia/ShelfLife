@@ -354,6 +354,24 @@ while True:
             else:
                 print("\nNo results found!")
 
+        # ----- PRODUCTS BELOW AVERAGE QUANTITY -----       
+
+        elif choice == 18:
+
+            print("\n===== PRODUCTS BELOW AVERAGE QUANTITY =====")
+
+            rows = product_below_avgQty()
+
+            if rows:
+                for row in rows:
+                    print("\n-------------------------")
+                    print(f"ID       : {row[0]}")
+                    print(f"Name     : {row[1]}")
+                    print(f"Category : {row[2]}")
+                    print(f"Quantity : {row[3]}")
+            else:
+                print("No products found!")
+
         #--- EXIT ----
 
         elif choice ==0:
