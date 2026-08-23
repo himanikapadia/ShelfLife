@@ -125,13 +125,27 @@ def load_products():
 
 def update_qty(product_id,quantity):
     print("Updating database...", product_id, quantity)
-    conn= connect_db()
-    cursor=conn.cursor()
+    conn = connect_db()
+    cursor = conn.cursor()
 
-    cursor.execute("""UPDATE products SET quantity=? WHERE id = ?""",(quantity,product_id))
-    conn.commit()
-    print("Rows updated:", cursor.rowcount)
-    conn.close()
+    try:
+        cursor.execute("""
+            UPDATE products
+            SET quantity = ?
+            WHERE id = ?
+        """, (quantity, product_id))
+
+        conn.commit()
+
+        return True
+
+    except Exception as e:
+        conn.rollback()
+        print("Transaction failed:", e)
+        return False
+
+    finally:
+        conn.close()
 
 def delete_product(product_id):
     conn = connect_db()
