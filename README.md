@@ -14,6 +14,7 @@ ShelfLife is built to learn and apply software development concepts by continuou
 
 The project progression is:
 
+```text
 Python & OOP
      ↓
 File Handling
@@ -29,12 +30,13 @@ Database Architecture
 Django Web Application
      ↓
 Deployment
+```
 
 ---
 
 ## Features
 
-## Inventory Management
+### Inventory Management
 
 - Add new products
 - View products
@@ -42,13 +44,13 @@ Deployment
 - Remove products
 - Persistent database storage
 
-## Product Search
+### Product Search
 
 - Search by ID
 - Search by name
 - Search by category
 
-## Inventory Reports
+### Inventory Reports
 
 - Low stock report
 - Expiry report
@@ -56,7 +58,7 @@ Deployment
 - Category reports
 - SQL-based reports
 
-## Product Utilities
+### Product Utilities
 
 - Sort products
 - Filter by category
@@ -64,14 +66,14 @@ Deployment
 - Filter low-stock products
 - Filter by expiry
 
-## File Management
+### File Management
 
 - JSON export/import
 - CSV export/import
 - Inventory backup
 - Inventory restore
 
-## Database Features
+### Database Features
 
 - SQLite database integration
 - SQL CRUD operations
@@ -85,7 +87,7 @@ Deployment
 - Database indexes
 - Transaction handling
 
-## Validation & Error Handling
+### Validation & Error Handling
 
 - Duplicate product ID detection
 - Input validation
@@ -98,21 +100,21 @@ Deployment
 
 ShelfLife demonstrates practical Object-Oriented Programming concepts through its product and inventory architecture.
 
-## Classes & Objects
+### Classes & Objects
 
 The application uses reusable classes such as:
 
-- Product
-- Food
-- Medicines
-- Electronics
-- Inventory
+- `Product`
+- `Food`
+- `Medicines`
+- `Electronics`
+- `Inventory`
 
-## Constructors
+### Constructors
 
 Objects are initialized using `__init__()`.
 
-## Encapsulation
+### Encapsulation
 
 Product attributes are protected using private attributes such as:
 
@@ -120,89 +122,103 @@ Product attributes are protected using private attributes such as:
 __id
 __quantity
 __expiry_date
+```
 
-## Inheritance
+### Inheritance
 
 The product hierarchy is structured as:
 
-                Product
-                   |
-      ┌────────────┼────────────┐
-      |            |            |
-    Food       Medicines    Electronics
+```text
+                    Product
+                       │
+          ┌────────────┼────────────┐
+          │            │            │
+        Food       Medicines    Electronics
+```
 
-Each specialized product inherits common functionality from the base Product class.
+Each specialized product inherits common functionality from the base `Product` class.
 
-Method Overriding
+### Method Overriding
 
-Different product types implement their own display() behavior.
+Different product types implement their own `display()` behavior.
 
-## Runtime Polymorphism
+### Runtime Polymorphism
 
+```python
 for product in products:
     product.display()
+```
 
 The appropriate implementation is called based on the actual product object.
 
+### Composition
 
-## Composition
+The `Inventory` class manages a collection of product objects.
 
-The Inventory class manages a collection of product objects.
-
+---
 
 ## Database Architecture
 
 Version 4 introduced a dedicated database layer.
 
+```text
 main.py
-   |
+   │
    ↓
 Inventory
-   |
+   │
    ↓
 database.py
-   |
+   │
    ↓
 SQLite
-   |
+   │
    ├── products
    └── category_details
-
+```
 
 The database layer handles product persistence, searching, updating, deletion, reporting, and SQL operations.
+
+---
 
 ## SQL Concepts Implemented
 
 ShelfLife V4 goes beyond basic CRUD operations and implements practical SQL concepts.
 
-* JOINs
+### JOINs
+
+```sql
 INNER JOIN
 LEFT JOIN
+```
 
 Used to combine product information with category information.
 
-* GROUP BY
+### GROUP BY
 
 Used for category-level inventory summaries.
 
-* HAVING
+### HAVING
 
 Used to filter grouped results.
 
-* Subqueries
+### Subqueries
 
-Used for advanced inventory analysis such as comparing products against average quantities.
+Used for advanced inventory analysis, such as comparing products against average quantities.
 
-* Indexes
+### Indexes
 
 Indexes are applied to frequently searched fields to improve database query performance.
 
-* Transactions
+### Transactions
 
 Database updates use commit and rollback handling to maintain data consistency.
 
+---
+
 ## Project Structure
 
+```text
 ShelfLife/
 │
 ├── assets/
@@ -232,105 +248,113 @@ ShelfLife/
 │
 ├── main.py
 └── README.md
+```
 
+---
 
 ## Product Categories
 
-* Food
-Expiry date
-Storage type
-Quantity
+### Food
 
-* Medicines
-Expiry date
-Manufacturer
-Prescription requirement
-Quantity
+- Expiry date
+- Storage type
+- Quantity
 
-* Electronics
-Warranty
-Brand
-Quantity
+### Medicines
 
+- Expiry date
+- Manufacturer
+- Prescription requirement
+- Quantity
+
+### Electronics
+
+- Warranty
+- Brand
+- Quantity
+
+---
 
 ## Version Roadmap
 
-* Version 1 — OOP Foundation
+### Version 1 — OOP Foundation
 
 Completed:
 
-Classes and objects
-Constructors
-Encapsulation
-Inheritance
-Method overriding
-Polymorphism
-Composition
-Basic inventory management
+- Classes and objects
+- Constructors
+- Encapsulation
+- Inheritance
+- Method overriding
+- Polymorphism
+- Composition
+- Basic inventory management
 
-* Version 2 — File Handling
-
-Completed:
-
-Text file storage
-Automatic save/load
-JSON export/import
-CSV export/import
-Backup and restore
-Improved exception handling
-
-* Version 3 — Inventory Features
+### Version 2 — File Handling
 
 Completed:
 
-Inventory statistics
-Product sorting
-Product filtering
-Search functionality
-Low stock reports
-Expiry reports
-Duplicate ID validation
-Modular project structure
+- Text file storage
+- Automatic save/load
+- JSON export/import
+- CSV export/import
+- Backup and restore
+- Improved exception handling
 
-* Version 4 — Database Integration
+### Version 3 — Inventory Features
 
 Completed:
 
-SQLite database
-Database CRUD operations
-Persistent product storage
-Product loading from database
-Quantity updates
-Database searching
-SQL Views
-INNER JOIN
-LEFT JOIN
-GROUP BY
-HAVING
-Subqueries
-Database indexes
-Transaction handling
+- Inventory statistics
+- Product sorting
+- Product filtering
+- Search functionality
+- Low stock reports
+- Expiry reports
+- Duplicate ID validation
+- Modular project structure
 
-* Version 5 — Django Web Application
+### Version 4 — Database Integration
+
+Completed:
+
+- SQLite database
+- Database CRUD operations
+- Persistent product storage
+- Product loading from database
+- Quantity updates
+- Database searching
+- SQL Views
+- INNER JOIN
+- LEFT JOIN
+- GROUP BY
+- HAVING
+- Subqueries
+- Database indexes
+- Transaction handling
+
+### Version 5 — Django Web Application
 
 Planned:
 
-Django project architecture
-Django Models
-Django ORM
-Web-based product management
-Authentication
-Dashboard
-Inventory analytics
-Search and filtering
-Forms and validation
-Responsive interface
-PostgreSQL
-Deployment
+- Django project architecture
+- Django Models
+- Django ORM
+- Web-based product management
+- Authentication
+- Dashboard
+- Inventory analytics
+- Search and filtering
+- Forms and validation
+- Responsive interface
+- PostgreSQL
+- Deployment
 
+---
 
 ## Current Learning Journey
 
+```text
 Python Fundamentals
         ↓
 Object-Oriented Programming
@@ -352,67 +376,88 @@ Django
 Web Development
         ↓
 Deployment
+```
 
+---
 
 ## Technologies Used
 
-Python 3
-Object-Oriented Programming
-SQLite
-SQL
-JSON
-CSV
-Git & GitHub
-File Handling
-datetime
-shutil
-Planned for V5
-Django
-Django ORM
-HTML
-CSS
-JavaScript
-PostgreSQL
-Deployment
-Screenshots
-Main Menu
+- Python 3
+- Object-Oriented Programming
+- SQLite
+- SQL
+- JSON
+- CSV
+- Git & GitHub
+- File Handling
+- `datetime`
+- `shutil`
 
+### Planned for V5
 
-## Project Structure
+- Django
+- Django ORM
+- HTML
+- CSS
+- JavaScript
+- PostgreSQL
+- Deployment
 
-Inventory Statistics
+---
 
-Filter Products
+## Screenshots
 
-Search Products
+### Main Menu
+
+![Main Menu](assets/menu.png)
+
+### Project Structure
+
+![Project Structure](assets/project_structure.png)
+
+### Inventory Statistics
+
+![Inventory Statistics](assets/inventory_statistics.png)
+
+### Filter Products
+
+![Filter Products](assets/filter_products.png)
+
+### Search Products
+
+![Search Products](assets/search_functions.png)
+
+---
 
 ## Current Status
 
-Current Version: v4.0
+**Current Version: v4.0**
 
 Completed:
 
-OOP architecture
-Inventory management
-File handling
-JSON & CSV support
-Search
-Sorting
-Filtering
-Inventory statistics
-Backup & restore
-SQLite integration
-SQL CRUD
-SQL Views
-JOINs
-GROUP BY & HAVING
-Subqueries
-Database indexes
-Transactions
+- OOP architecture
+- Inventory management
+- File handling
+- JSON & CSV support
+- Search
+- Sorting
+- Filtering
+- Inventory statistics
+- Backup & restore
+- SQLite integration
+- SQL CRUD
+- SQL Views
+- JOINs
+- GROUP BY & HAVING
+- Subqueries
+- Database indexes
+- Transactions
+
+---
 
 ## What's Next?
 
-The next major stage of ShelfLife is Version 5.
+The next major stage of ShelfLife is **Version 5**.
 
 The goal is to transform the current terminal application into a proper Django web application with a web interface, database-backed models, authentication, dashboards, analytics, and deployment.
 
@@ -420,17 +465,21 @@ V4 established the database foundation.
 
 V5 will turn that foundation into a complete web application.
 
-Project Vision
+---
+
+## Project Vision
 
 ShelfLife is more than a single inventory application. It is a long-term project used to document the progression from learning programming fundamentals to building and deploying a real-world software application.
 
 Each version introduces new concepts while continuing to improve the same system.
 
+```text
 V1 → OOP
 V2 → File Handling
 V3 → Application Features
 V4 → SQL & Database Architecture
 V5 → Django Web Application
 V6 → Deployment & Production
+```
 
 The goal is to keep building, improving, and learning through the same project.
