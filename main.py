@@ -9,7 +9,8 @@ from services.database import (
     create_views,
     category_summary,
     category_quantity_report,
-    product_below_avgQty
+    product_below_avgQty,
+    create_indexes
 )
 from services.inventory import Inventory
 from services.database import get_low_stock_view
@@ -26,7 +27,6 @@ from services.file_handler import (
     import_csv,
     backup_inventory,
     restore_inventory,
-    create_indexes
 )
 
 from utils.menu import show_menu
