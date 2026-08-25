@@ -411,7 +411,7 @@ Deployment
 
 ![Main Menu](assets/menu.png)
 
-### Project Structure
+### Project's Structure
 
 ![Project Structure](assets/project_structure.png)
 
@@ -431,7 +431,7 @@ Deployment
 
 ## Current Status
 
-**Current Version: v4.0**
+**Current Version: v4.0
 
 Completed:
 
