@@ -1,36 +1,36 @@
 [
     {
-        "type": "Medicines",
+        "type": "Food",
         "id": 101,
-        "name": "Crocin",
-        "quantity": 4,
-        "expiry": "24-08-2026",
-        "manufacturer": "Cipla",
-        "prescription": "yes"
+        "name": "Bread",
+        "quantity": 3,
+        "expiry": "19-08-2026",
+        "storage": "Frozen"
     },
     {
         "type": "Electronics",
-        "id": 103,
+        "id": 102,
         "name": "Laptop",
-        "quantity": 2,
+        "quantity": 7,
         "brand": "Asus",
-        "warranty": 6
-    },
-    {
-        "type": "Food",
-        "id": 104,
-        "name": "Milk",
-        "quantity": 3,
-        "expiry": "01-09-2026",
-        "storage": "Refrigerated"
+        "warranty": 12
     },
     {
         "type": "Medicines",
-        "id": 105,
-        "name": "Paracetamol",
-        "quantity": 6,
-        "expiry": "03-09-2027",
-        "manufacturer": "Combiflam",
+        "id": 103,
+        "name": "Dolo",
+        "quantity": 10,
+        "expiry": "23-09-2028",
+        "manufacturer": "xyz",
+        "prescription": "Yes"
+    },
+    {
+        "type": "Medicines",
+        "id": 104,
+        "name": "Crocin",
+        "quantity": 5,
+        "expiry": "12-10-2027",
+        "manufacturer": "Cipla",
         "prescription": "No"
     }
 ]
