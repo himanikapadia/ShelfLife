@@ -1,5 +1,5 @@
 Type,ID,Name,Quantity,Expiry,Extra1,Extra2
-Medicines,101,Crocin,4,24-08-2026,Cipla,yes
-Electronics,103,Laptop,2,6,Asus,
-Food,104,Milk,3,01-09-2026,Refrigerated,
-Medicines,105,Paracetamol,6,03-09-2027,Combiflam,No
+Food,101,Bread,3,19-08-2026,Frozen,
+Electronics,102,Laptop,7,12,Asus,
+Medicines,103,Dolo,10,23-09-2028,xyz,Yes
+Medicines,104,Crocin,5,12-10-2027,Cipla,No
