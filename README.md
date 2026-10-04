@@ -454,6 +454,23 @@ Completed:
 - Transactions
 
 ---
+---
+
+## A Quick Glimpse (v4.0 in Action)
+
+In Version 4.0, ShelfLife runs directly from the terminal backed by a live SQLite database:
+
+```text
+====================================
+        SHELFLIFE v4.0 (CLI)        
+====================================
+1. Add Product       [SQL INSERT]
+2. View All Items    [SQL SELECT & JOINS]
+3. Search Product    [Indexed Query]
+4. Inventory Reports [GROUP BY / HAVING]
+5. Backup & Export   [JSON / CSV]
+6. Exit
+====================================
 
 ## What's Next?
 
