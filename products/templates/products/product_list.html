@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ShelfLife - Products</title>
-</head>
-<body>
+{% for product in products %}
+    <div>
+        <h2>
+            <a href="{% url 'product_detail' product.id %}">
+                {{ product.name }}
+            </a>
+        </h2>
 
-    <h1>ShelfLife Products</h1>
-
-    {% for product in products %}
-        <div>
-            <h2>{{ product.name }}</h2>
-            <p>Category: {{ product.category }}</p>
-            <p>Quantity: {{ product.quantity }}</p>
-            <p>Price: ₹{{ product.price }}</p>
-        </div>
-        <hr>
-    {% empty %}
-        <p>No products available.</p>
-    {% endfor %}
-
-</body>
-</html>
+        <p>Category: {{ product.category }}</p>
+        <p>Quantity: {{ product.quantity }}</p>
+        <p>Price: ₹{{ product.price }}</p>
+    </div>
+    <hr>
+{% empty %}
+    <p>No products available.</p>
+{% endfor %}
