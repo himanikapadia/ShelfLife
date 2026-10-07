@@ -1,16 +1,42 @@
-{% for product in products %}
-    <div>
-        <h2>
-            <a href="{% url 'product_detail' product.id %}">
-                {{ product.name }}
-            </a>
-        </h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShelfLife - Products</title>
+</head>
+<body>
 
-        <p>Category: {{ product.category }}</p>
-        <p>Quantity: {{ product.quantity }}</p>
-        <p>Price: ₹{{ product.price }}</p>
-    </div>
+    <h1>ShelfLife Products</h1>
+
+    <form method="GET">
+        <input
+            type="text"
+            name="q"
+            placeholder="Search products..."
+            value="{{ query }}"
+        >
+        <button type="submit">Search</button>
+    </form>
+
     <hr>
-{% empty %}
-    <p>No products available.</p>
-{% endfor %}
+
+    {% for product in products %}
+        <div>
+            <h2>
+                <a href="{% url 'product_detail' product.id %}">
+                    {{ product.name }}
+                </a>
+            </h2>
+
+            <p>Category: {{ product.category }}</p>
+            <p>Quantity: {{ product.quantity }}</p>
+            <p>Price: ₹{{ product.price }}</p>
+        </div>
+
+        <hr>
+
+    {% empty %}
+        <p>No products found.</p>
+    {% endfor %}
+
+</body>
+</html>
