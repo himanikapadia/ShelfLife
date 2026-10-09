@@ -1,59 +1,131 @@
+
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ShelfLife - Products</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | ShelfLife</title>
+    <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
 </head>
 <body>
 
-    <h1>ShelfLife Products</h1>
+<div class="app-layout">
 
-    <form method="GET">
+    <aside class="sidebar">
+        <div class="brand">Shelf<span>Life</span></div>
 
-        <input
-            type="text"
-            name="q"
-            placeholder="Search products..."
-            value="{{ query }}"
-        >
+        <p class="nav-label">WORKSPACE</p>
 
-        <select name="category">
-            <option value="">All Categories</option>
+        <a href="{% url 'product_list' %}" class="nav-link active">
+            Products
+        </a>
 
-            {% for item in categories %}
-                <option value="{{ item }}"
-                    {% if category == item %}selected{% endif %}>
-                    {{ item }}
-                </option>
-            {% endfor %}
-        </select>
+        <a href="{% url 'product_list' %}" class="nav-link">
+            Inventory
+        </a>
+    </aside>
 
-        <button type="submit">Search</button>
+    <main class="main-content">
 
-    </form>
+        <header class="topbar">
+            <div>
+                <div class="eyebrow">WORKSPACE / INVENTORY</div>
+                <h1>Products</h1>
+                <p class="page-subtitle">
+                    A clearer view of your inventory, all in one place.
+                </p>
+            </div>
 
-    <hr>
+            <div class="status-pill">● Workspace ready</div>
+        </header>
 
-    {% for product in products %}
+        <section class="panel">
 
-        <div>
-            <h2>
-                <a href="{% url 'product_detail' product.id %}">
-                    {{ product.name }}
-                </a>
-            </h2>
+            <div class="panel-header">
+                <div>
+                    <h2>Product inventory</h2>
+                    <p>Browse, search and filter your products.</p>
+                </div>
+            </div>
 
-            <p>Category: {{ product.category }}</p>
-            <p>Quantity: {{ product.quantity }}</p>
-            <p>Price: ₹{{ product.price }}</p>
-        </div>
+            <form method="GET" class="search-form">
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Search products by name..."
+                    value="{{ query }}"
+                >
 
-        <hr>
+                <select name="category">
+                    <option value="">All categories</option>
 
-    {% empty %}
+                    {% for item in categories %}
+                        <option value="{{ item }}"
+                            {% if category == item %}selected{% endif %}>
+                            {{ item }}
+                        </option>
+                    {% endfor %}
+                </select>
 
-        <p>No products found.</p>
+                <button type="submit">Search</button>
+            </form>
 
-    {% endfor %}
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Unit price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td>
+                                    <a
+                                        class="product-name"
+                                        href="{% url 'product_detail' product.id %}"
+                                    >
+                                        {{ product.name }}
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <span class="category-badge">
+                                        {{ product.category }}
+                                    </span>
+                                </td>
+
+                                <td class="quantity">
+                                    {{ product.quantity }}
+                                </td>
+
+                                <td class="price">
+                                    ₹{{ product.price }}
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="4">
+                                    <div class="empty-state">
+                                        <strong>No products found</strong>
+                                        Try another search or category.
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</div>
 
 </body>
 </html>
