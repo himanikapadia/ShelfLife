@@ -1,4 +1,4 @@
-# ShelfLife v4.0
+# ShelfLife v5.0
 
 ShelfLife is a Python-based inventory management system built as a long-term software development project.
 
