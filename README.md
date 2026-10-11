@@ -8,7 +8,7 @@ Version 4 introduces SQLite database integration and advanced SQL functionality,
 
 ---
 
-## Project Goal
+## Project Goals
 
 ShelfLife is built to learn and apply software development concepts by continuously evolving the same real-world application.
 
