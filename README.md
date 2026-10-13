@@ -335,7 +335,7 @@ Completed:
 
 ### Version 5 — Django Web Application
 
-Planned :
+Planned : ongoing
 
 - Django project architecture
 - Django Models
