@@ -347,4 +347,27 @@ tbody tr:hover {
     th, td {
         padding: 14px 11px;
     }
+    .stock-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 5px 9px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.in-stock {
+    background: #E4F1E7;
+    color: #29483D;
+}
+
+.low-stock {
+    background: #F8E8D8;
+    color: #95552F;
+}
+
+.out-of-stock {
+    background: #F5DEDA;
+    color: #963F35;
+}
 }
