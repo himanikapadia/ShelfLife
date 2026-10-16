@@ -1,4 +1,4 @@
-# ShelfLife v4.0
+# ShelfLife v5.0
 
 ShelfLife is a Python-based inventory management system built as a long-term software development project.
 
@@ -8,7 +8,7 @@ Version 4 introduces SQLite database integration and advanced SQL functionality,
 
 ---
 
-## Project Goal
+## Project Goals
 
 ShelfLife is built to learn and apply software development concepts by continuously evolving the same real-world application.
 
@@ -335,7 +335,7 @@ Completed:
 
 ### Version 5 — Django Web Application
 
-Planned :
+Planned : ongoing
 
 - Django project architecture
 - Django Models
