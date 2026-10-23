@@ -1,4 +1,4 @@
-
+html
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +8,10 @@
 
     <title>Products | ShelfLife</title>
 
+    <!-- Prevent the missing favicon.ico request -->
+    <link rel="icon" href="data:,">
+
+    <!-- ShelfLife stylesheet -->
     <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
 </head>
 
@@ -49,6 +53,17 @@
             </div>
         </header>
 
+        <!-- Low-stock summary -->
+        <section class="summary-card">
+            <p class="summary-label">LOW STOCK ITEMS</p>
+
+            <h2>{{ low_stock_count|default:0 }}</h2>
+
+            <p class="summary-description">
+                Products with 5 or fewer units remaining.
+            </p>
+        </section>
+
         <!-- Product inventory panel -->
         <section class="panel">
 
@@ -69,7 +84,7 @@
                     type="text"
                     name="q"
                     placeholder="Search products by name..."
-                    value="{{ query }}"
+                    value="{{ query|default:'' }}"
                 >
 
                 <select name="category">
@@ -85,9 +100,7 @@
                     {% endfor %}
                 </select>
 
-                <button type="submit">
-                    Search
-                </button>
+                <button type="submit">Search</button>
 
             </form>
 
@@ -99,7 +112,7 @@
                         <tr>
                             <th>Product</th>
                             <th>Category</th>
-                            <th>Quantity</th>
+                            <th>Quantity &amp; status</th>
                             <th>Unit price</th>
                         </tr>
                     </thead>
@@ -124,14 +137,22 @@
                                 </td>
 
                                 <td>
-                                    <span class="quantity">{{ product.quantity }}</span>
+                                    <span class="quantity">
+                                        {{ product.quantity }}
+                                    </span>
 
                                     {% if product.quantity == 0 %}
-                                        <span class="stock-badge out-of-stock">Out of Stock</span>
+                                        <span class="stock-badge out-of-stock">
+                                            Out of Stock
+                                        </span>
                                     {% elif product.quantity <= 5 %}
-                                        <span class="stock-badge low-stock">Low Stock</span>
+                                        <span class="stock-badge low-stock">
+                                            Low Stock
+                                        </span>
                                     {% else %}
-                                        <span class="stock-badge in-stock">In Stock</span>
+                                        <span class="stock-badge in-stock">
+                                            In Stock
+                                        </span>
                                     {% endif %}
                                 </td>
 
@@ -146,7 +167,6 @@
                                 <td colspan="4">
                                     <div class="empty-state">
                                         <strong>No products found</strong>
-
                                         Try another search or category.
                                     </div>
                                 </td>
@@ -160,7 +180,6 @@
         </section>
 
     </main>
-
 </div>
 </body>
 </html>
